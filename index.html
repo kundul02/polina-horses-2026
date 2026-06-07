@@ -349,26 +349,26 @@
 </div>
 
 <div class="stats">
-  <div class="stat"><span class="stat-value" id="total-count">31</span><span class="stat-label">программ</span></div>
-  <div class="stat"><span class="stat-value">7</span><span class="stat-label">стипендий</span></div>
-  <div class="stat"><span class="stat-value danger" id="urgent-count">3</span><span class="stat-label">срочных</span></div>
-  <div class="stat"><span class="stat-value">11</span><span class="stat-label">стран</span></div>
+  <div class="stat"><span class="stat-value" id="total-count">43</span><span class="stat-label">программ</span></div>
+  <div class="stat"><span class="stat-value">10</span><span class="stat-label">стипендий</span></div>
+  <div class="stat"><span class="stat-value danger" id="urgent-count">4</span><span class="stat-label">срочных</span></div>
+  <div class="stat"><span class="stat-value">12</span><span class="stat-label">стран</span></div>
 </div>
 
 <div class="callout">
   <strong>Срочно — подавать немедленно</strong>
-  BHS Caron Roberts (27 июня), Anna Hilton (7 июля) и Clonshire (1-2 места). Нажми «Срочно» ниже.
+  BHS Caron Roberts (27 июня), Hartpury Equine Academy (30 июня), Anna Hilton (7 июля) и Clonshire (1-2 места). Нажми «Срочно» ниже.
 </div>
 
 <div class="filters">
   <div class="filter-label">Тип программы</div>
   <div class="filter-scroll" id="cat-filter">
-    <button class="chip active" data-cat="all" onclick="setCategory(this)">Все (31)</button>
-    <button class="chip urgent" data-cat="urgent" onclick="setCategory(this)">Срочно (3)</button>
-    <button class="chip" data-cat="Стипендии" onclick="setCategory(this)">Стипендии (7)</button>
-    <button class="chip" data-cat="Лагери" onclick="setCategory(this)">Лагери (9)</button>
-    <button class="chip" data-cat="Стажировки" onclick="setCategory(this)">Стажировки (10)</button>
-    <button class="chip" data-cat="Обмен" onclick="setCategory(this)">Обмен (3)</button>
+    <button class="chip active" data-cat="all" onclick="setCategory(this)">Все (43)</button>
+    <button class="chip urgent" data-cat="urgent" onclick="setCategory(this)">Срочно (4)</button>
+    <button class="chip" data-cat="Стипендии" onclick="setCategory(this)">Стипендии (10)</button>
+    <button class="chip" data-cat="Лагери" onclick="setCategory(this)">Лагери (10)</button>
+    <button class="chip" data-cat="Стажировки" onclick="setCategory(this)">Стажировки (17)</button>
+    <button class="chip" data-cat="Обмен" onclick="setCategory(this)">Обмен (4)</button>
     <button class="chip" data-cat="Кастинги" onclick="setCategory(this)">Кастинги (2)</button>
     <button class="chip" data-cat="archive" onclick="setCategory(this)">Архив (0)</button>
   </div>
@@ -376,8 +376,9 @@
   <div class="filter-label" style="margin-top:8px">Страна</div>
   <div class="filter-scroll" id="country-filter">
     <button class="chip active" data-country="all" onclick="setCountry(this)">Все страны</button>
-    <button class="chip" data-country="USA" onclick="setCountry(this)">USA (9)</button>
-    <button class="chip" data-country="UK" onclick="setCountry(this)">UK (10)</button>
+    <button class="chip" data-country="USA" onclick="setCountry(this)">USA (19)</button>
+    <button class="chip" data-country="UK" onclick="setCountry(this)">UK (11)</button>
+    <button class="chip" data-country="Canada" onclick="setCountry(this)">Canada (1)</button>
     <button class="chip" data-country="Ирландия" onclick="setCountry(this)">Ирландия (3)</button>
     <button class="chip" data-country="Германия" onclick="setCountry(this)">Германия (3)</button>
     <button class="chip" data-country="Испания" onclick="setCountry(this)">Испания (1)</button>
@@ -387,6 +388,9 @@
     <button class="chip" data-country="ЮАР" onclick="setCountry(this)">ЮАР (1)</button>
     <button class="chip" data-country="Аргентина" onclick="setCountry(this)">Аргентина (1)</button>
     <button class="chip" data-country="Словения" onclick="setCountry(this)">Словения (1)</button>
+    <button class="chip" data-country="Швеция" onclick="setCountry(this)">Швеция (0)</button>
+    <button class="chip" data-country="Бельгия" onclick="setCountry(this)">Бельгия (0)</button>
+    <button class="chip" data-country="Канада" onclick="setCountry(this)">Канада (0)</button>
   </div>
   <div class="filter-label" style="margin-top:8px">Возраст</div>
   <div class="filter-scroll" id="age-filter">
@@ -396,7 +400,7 @@
   </div>
 </div>
 
-<div class="count-bar" id="count-bar">Показано: 31 программ</div>
+<div class="count-bar" id="count-bar">Показано: 43 программ</div>
 
 <div class="programs" id="programs-list"></div>
 
@@ -421,7 +425,7 @@
 </div>
 
 <script>
-const PROGRAMS = [
+const BASE_PROGRAMS = [
   {
     id: 1, name: "Ever So Sweet Camp",
     org: "Strides for Equality Equestrians (SEE)",
@@ -762,8 +766,580 @@ const PROGRAMS = [
     desc: "Волонтёрство на аргентинской эстансии: гид по конным маршрутам для гостей, уход за лошадьми, работа с молодыми лошадьми. Жильё + питание бесплатно. Нужен хороший уровень езды + базовый испанский. 280 км от Буэнос-Айреса. Настоящая жизнь гаучо.",
     url: "https://freevolunteering.net/horse-riding-estancia-argentina/",
     urgent: false, check: "Требуется 18+, испанский язык и опыт конного туризма"
+  },
+  {
+    id: 32, name: "KB Horses Summer Equestrian Internship",
+    org: "KB Horses",
+    category: "Стажировки", baseCountry: "USA", country: "USA",
+    age: "18+", minAge: 18, deadline: "Rolling / contact program", tone: "green",
+    support: ["Жильё", "Оплата", "Обучение"],
+    pay: "$100/week allowance + gratuities",
+    desc: "Оплачиваемая стажировка с проживанием на ранчо и предоставлением транспорта. Включена оплата курса Horsemanship-101 (с книгой) и практическая езда.",
+    url: "https://www.kbhorses.com/internships",
+    urgent: false, check: null
+  },
+  {
+    id: 33, name: "Days End Farm Rescue Internship",
+    org: "Days End Farm Horse Rescue",
+    category: "Стажировки", baseCountry: "USA", country: "USA",
+    age: "16+ (уточнить при подаче)", minAge: 16, deadline: "Rolling", tone: "green",
+    support: ["Жильё", "Оплата", "Обучение"],
+    pay: "$100/week stipend (для residential interns)",
+    desc: "Стажировка по уходу и реабилитации лошадей: натуральное хорсманшип, работа под седлом и с земли. Для проживающих на ферме есть бесплатное жильё и стипендия.",
+    url: "https://defhr.org/hr-positions/equine-care-rehabilitation-internship/",
+    urgent: false, check: null
+  },
+  {
+    id: 34, name: "AHC Summer 2026 Internship Program",
+    org: "American Horse Council (AHC)",
+    category: "Стажировки", baseCountry: "USA", country: "USA",
+    age: "студенты / 16+", minAge: 16, deadline: "May 15 - August 15, 2026", tone: "green",
+    support: ["Оплата", "Обучение"],
+    pay: "До $125/неделю OR учебные кредиты",
+    desc: "Стажировка в конной индустрии: государственные инициативы, youth resources, data management. Формат удалённый или in-person в Washington D.C.",
+    url: "https://horsecouncil.org/project/american-horse-council-announces-summer-2026-internship-opportunities/",
+    urgent: false, check: null
+  },
+  {
+    id: 35, name: "Saddle Lake Equestrian Internship (KY/FL)",
+    org: "Saddle Lake Equestrian Center",
+    category: "Стажировки", baseCountry: "USA", country: "USA",
+    age: "16+ (уточнить)", minAge: 16, deadline: "Rolling (Jan-Aug tracks)", tone: "green",
+    support: ["Жильё", "Обучение"],
+    pay: "Оплата не указана (работа в обмен на опыт)",
+    desc: "On-site housing для иногородних. Разведение, уход за кобылами и жеребятами, шоу-грум, вет/кузнечные визиты, тренинг и верховая езда.",
+    url: "https://saddlelakeequestrian.com/internships/",
+    urgent: false, check: null
+  },
+  {
+    id: 36, name: "Scattered Acres Working Student Program",
+    org: "Scattered Acres Sport Horses",
+    category: "Стажировки", baseCountry: "USA", country: "USA",
+    age: "16+ (уточнить)", minAge: 16, deadline: "Rolling", tone: "neutral",
+    support: ["Обучение"],
+    pay: "Нет денежной оплаты (уроки в обмен на работу)",
+    desc: "Working student в eventing: регулярные уроки, работа с школьными лошадьми, управление конюшней, подготовка к соревнованиям.",
+    url: "https://scatteredacres.net/working-students/",
+    urgent: false, check: "Уточнить условия жилья и финальные финансовые условия напрямую"
+  },
+  {
+    id: 37, name: "Verona Equestrian Paid Working Student",
+    org: "Verona Equestrian",
+    category: "Стажировки", baseCountry: "USA", country: "USA",
+    age: "16+ (уточнить)", minAge: 16, deadline: "Rolling", tone: "neutral",
+    support: ["Оплата", "Обучение"],
+    pay: "Оплачиваемая позиция (paid), детали уточнять",
+    desc: "Paid working student / young horse rider: тренировки под Advanced event rider, работа с молодыми лошадьми, участие в соревновательных милях.",
+    url: "http://www.veronaequestrian.com/working-student-program.html",
+    urgent: false, check: "Требует ручной проверки: подтвердить актуальность набора и условия проживания"
+  },
+  {
+    id: 38, name: "USEA Youth Mentorship Program",
+    org: "USEA Young Riders",
+    category: "Обмен", baseCountry: "USA", country: "USA",
+    age: "до 25 лет (Young Riders)", minAge: 16, deadline: "Rolling / annual intake", tone: "green",
+    support: ["Жильё", "Дорога", "Обучение"],
+    pay: "Нет прямой оплаты, частичная travel support по Area",
+    desc: "Менторство от профи, закулисный опыт AEC, командные старты CCI1*-3*. На выездных мероприятиях доступно размещение.",
+    url: "https://useventing.com/membership/young-riders",
+    urgent: false, check: null
+  },
+  {
+    id: 39, name: "Collegiate Bound Summer Riding Camp",
+    org: "Emory & Henry University",
+    category: "Лагери", baseCountry: "USA", country: "USA",
+    age: "14-18", minAge: 14, deadline: "Rolling (summer 2026)", tone: "green",
+    support: ["Жильё", "Питание", "Обучение"],
+    pay: "Нет",
+    desc: "Residential summer camp на университетской конной базе: ежедневная езда, хорсманшип, уход за лошадьми. Проживание в дормиториях включено.",
+    url: "https://www.emoryhenry.edu/summer-programs/camps/equestrian-camp/",
+    urgent: false, check: null
+  },
+  {
+    id: 40, name: "Worth the Trust Scholarship (USEA)",
+    org: "USEA",
+    category: "Стипендии", baseCountry: "USA", country: "USA",
+    age: "16+", minAge: 16, deadline: "Ежегодный набор (уточнить на сайте)", tone: "neutral",
+    support: ["Дорога", "Обучение"],
+    pay: "$4,000 на клиники, working student позиции, уроки",
+    desc: "Финансовая поддержка для любительских всадников 16+ на тренировочный сезон, включая расходы на поездки и обучение.",
+    url: "https://useventing.com/",
+    urgent: false, check: "Требует ручной проверки: актуальный дедлайн и eligibility в текущем сезоне"
+  },
+  {
+    id: 41, name: "USHJA J.T. Tallon Memorial Equitation Grant",
+    org: "USHJA",
+    category: "Стипендии", baseCountry: "USA", country: "USA",
+    age: "Junior (до 18 лет)", minAge: 16, deadline: "April 1 - August 1 (annual)", tone: "orange",
+    support: ["Дорога", "Оплата"],
+    pay: "$1,000 на участие в национальном чемпионате",
+    desc: "Грант для junior rider с ограниченным бюджетом, квалифицированного на национальный чемпионат (equitation).",
+    url: "https://www.ushja.org/donors-grants/grants-scholarships",
+    urgent: false, check: null
+  },
+  {
+    id: 42, name: "Hartpury Equine Academy + Scholarships",
+    org: "Hartpury University",
+    category: "Стипендии", baseCountry: "UK", country: "UK",
+    age: "16+ (college/university)", minAge: 16, deadline: "30 June 2026", tone: "red",
+    support: ["Жильё", "Обучение", "Оплата"],
+    pay: "Scholarships для Elite squad",
+    desc: "Equine Academy с уровнями Elite/Development, профессиональный коучинг и тренировочные сессии. Доступно студенческое жильё на кампусе.",
+    url: "https://www.hartpury.ac.uk/university/playing-sport/academies/equine-academy",
+    urgent: true, check: null
+  },
+  {
+    id: 43, name: "Franklands Farm Working Student Program",
+    org: "Team Irwin Dressage / Franklands Farm",
+    category: "Стажировки", baseCountry: "Canada", country: "Canada",
+    age: "16+ (уточнить)", minAge: 16, deadline: "Rolling", tone: "neutral",
+    support: ["Жильё", "Обучение"],
+    pay: "Нет прямой оплаты (training-based compensation)",
+    desc: "Working student формат на базе high-level dressage команды: уход, stable management, регулярный тренинг олимпийного уровня.",
+    url: "https://horsesport.com/magazine/business/what-its-like-being-working-student/",
+    urgent: false, check: "Требует ручной проверки: конкретные условия программы и актуальный набор"
   }
 ].map(program => ({ closed: false, ...program }));
+
+const LATEST_FEED = [
+  {
+    title: "European Solidarity Corps: The Horse Speaks All Languages",
+    country: "Sweden",
+    age_range: "18-30",
+    min_age: 18,
+    type: "Volunteering",
+    pay: "Monthly allowance + food budget",
+    travel_support: "Travel costs covered by ESC",
+    accommodation: "Private house with kitchen, bathroom, WiFi",
+    training: "Horse handling, disability support, on-arrival training",
+    deadline: "2026-03-23",
+    link: "https://youth.europa.eu/solidarity/opportunity/39919_en",
+    reason_fit: "Long-term volunteering (38 weeks) on a horse farm working with people with disabilities; includes accommodation, food budget, travel support, and horse-related training.",
+    status: "new"
+  },
+  {
+    title: "European Solidarity Corps: Join our herd of horses at Škatlica",
+    country: "Slovenia",
+    age_range: "18-30",
+    min_age: 18,
+    type: "Volunteering",
+    pay: "Monthly pocket money",
+    travel_support: "Travel costs covered by ESC",
+    accommodation: "Own room at the center, food provided",
+    training: "Horsemanship skills, safety, community building, on-arrival training",
+    deadline: "2026-03-08",
+    link: "https://youth.europa.eu/solidarity/opportunity/49724_en",
+    reason_fit: "12-month volunteering at an equestrian youth center; includes own room, food, pocket money, car/bike access, and horse lessons.",
+    status: "new"
+  },
+  {
+    title: "European Solidarity Corps: Volunteering in nature - Landschap De Liereman",
+    country: "Belgium",
+    age_range: "18-30",
+    min_age: 18,
+    type: "Volunteering",
+    pay: "Pocket money + food allowance",
+    travel_support: "Travel expenses covered",
+    accommodation: "Shared accommodation with kitchen, bathroom",
+    training: "Nature conservation, horse care (semi-wild grazers), on-arrival training",
+    deadline: "2026-04-19",
+    link: "https://youth.europa.eu/solidarity/opportunity/49730_en",
+    reason_fit: "52-week volunteering in nature reserve with occasional care of semi-wild horses/ponies; includes accommodation, food allowance, pocket money, bike, and travel coverage.",
+    status: "new"
+  },
+  {
+    title: "Camp Wicosuta Summer Equestrian Internship",
+    country: "USA",
+    age_range: "18+",
+    min_age: 18,
+    type: "Summer Camp Job",
+    pay: "Salary + travel allowance",
+    travel_support: "Travel allowance provided",
+    accommodation: "Room and board in cabin",
+    training: "English style riding instruction, camp counselor training",
+    deadline: "2026-06-14",
+    link: "https://career.ship.edu/jobs/camp-wicosuta-summer-equestrian-internship/",
+    reason_fit: "Summer job (mid-June to mid-August) as horseback riding instructor at girls' sleepaway camp; includes salary, travel allowance, and room/board.",
+    status: "new"
+  },
+  {
+    title: "Tripp Lake Camp Horseback Riding Counselor",
+    country: "USA",
+    age_range: "18+",
+    min_age: 18,
+    type: "Summer Camp Job",
+    pay: "Competitive salary",
+    travel_support: "Travel allowance provided",
+    accommodation: "Room, board, uniforms, laundry",
+    training: "English riding, jumping, grooming, barn maintenance",
+    deadline: "2026-05-30",
+    link: "https://career.ship.edu/companies/tripp-lake-camp/jobs/",
+    reason_fit: "7-week summer job in Maine teaching English riding; includes competitive salary, room, board, uniforms, laundry, and travel allowance.",
+    status: "new"
+  },
+  {
+    title: "KB HORSES Summer Internship Program",
+    country: "USA",
+    age_range: "18+",
+    min_age: 18,
+    type: "Internship",
+    pay: "$100/week allowance + gratuities",
+    travel_support: "Truck provided for work-related driving",
+    accommodation: "Private 2-bedroom apartment provided",
+    training: "Horsemanship-101 certification (tuition paid), colt training, ranch operations",
+    deadline: "Closed for Summer 2026",
+    link: "https://www.kbhorses.com/internships",
+    reason_fit: "90-day summer internship in Utah with housing, vehicle, weekly allowance, tips, and paid certification course. Note: Applications for 2026 are closed.",
+    status: "closed"
+  },
+  {
+    title: "DEFHR Equine Care & Rehabilitation Internship",
+    country: "USA",
+    age_range: "18+",
+    min_age: 18,
+    type: "Internship",
+    pay: "$100/week stipend (residential only)",
+    travel_support: "Not specified",
+    accommodation: "Free housing (residential spots limited)",
+    training: "Equine husbandry, cruelty recognition, rehabilitation, horse psychology",
+    deadline: "2026-05-23 (Fall 2026 session)",
+    link: "https://defhr.org/hr-positions/equine-care-rehabilitation-internship/",
+    reason_fit: "Residential internship with free housing and $100/week food stipend; focuses on care of neglected/abused horses. Fall 2026 deadline is May 23, 2026.",
+    status: "new"
+  },
+  {
+    title: "Tempel Farms Working Student Program",
+    country: "USA",
+    age_range: "18+",
+    min_age: 18,
+    type: "Working Student",
+    pay: "Monthly stipend",
+    travel_support: "Not specified",
+    accommodation: "Housing on property available",
+    training: "Classical dressage, stable management, performance riding",
+    deadline: "Rolling",
+    link: "https://www.tempelfarms.com/working-student-program.html",
+    reason_fit: "Dressage working student program with housing, monthly stipend, daily lessons on Lipizzans, and performance opportunities.",
+    status: "updated"
+  },
+  {
+    title: "Gleneayre Equestrian Program Working Student",
+    country: "USA",
+    age_range: "10-postsecondary",
+    min_age: 10,
+    type: "Working Student",
+    pay: "Free training/equipment (non-monetary)",
+    travel_support: "Not specified",
+    accommodation: "Not specified",
+    training: "Full horsemanship, horse pairing, competition support",
+    deadline: "Rolling",
+    link: "https://gleneayreequestrianprogram.org/program/working-student-program",
+    reason_fit: "Program for at-risk youth (age 10+) providing free equipment, horse pairing, and comprehensive horsemanship training in exchange for work commitment.",
+    status: "updated"
+  },
+  {
+    title: "American Horse Council Summer Internship",
+    country: "USA",
+    age_range: "College students",
+    min_age: 18,
+    type: "Internship",
+    pay: "Up to $125/week stipend or course credit",
+    travel_support: "Not specified",
+    accommodation: "Not specified (remote or DC in-person)",
+    training: "Government affairs, equine industry advocacy, data management",
+    deadline: "2026-05-01",
+    link: "https://horsecouncil.org/project/american-horse-council-announces-summer-2026-internship-opportunities/",
+    reason_fit: "12-week summer internship (May-August 2026) with stipend up to $125/week or academic credit; remote or in-person in Washington DC.",
+    status: "new"
+  },
+  {
+    title: "USEF Higher Education Equestrian Scholarships",
+    country: "USA",
+    age_range: "High school seniors",
+    min_age: 17,
+    type: "Scholarship",
+    pay: "$2,500 scholarship",
+    travel_support: "Not applicable",
+    accommodation: "Not applicable",
+    training: "Not applicable (funds for college)",
+    deadline: "2026-07-31",
+    link: "https://www.usef.org/media/press-releases/apply-now-for-2026-usef-higher-education",
+    reason_fit: "Two $2,500 scholarships for graduating seniors continuing equestrian involvement in college; funds paid to educational institution.",
+    status: "new"
+  },
+  {
+    title: "Oyster Worldwide: Paid Horse Work & Equine Training in Australia",
+    country: "Australia",
+    age_range: "18-35",
+    min_age: 18,
+    type: "Paid Work Program",
+    pay: "~$800 AUD/week (paid groom role)",
+    travel_support: "Airport shuttle, admin support",
+    accommodation: "8 nights hostel in Sydney + accommodation at stud farm",
+    training: "Professional equine training, orientation week",
+    deadline: "Rolling",
+    link: "https://www.oysterworldwide.com/project/horse-care-course-with-paid-work/",
+    reason_fit: "Guaranteed paid groom position at Australian stud farm (3-12 months); includes 8-night Sydney orientation with accommodation, airport transfers, and ongoing support. Requires 417/462 visa.",
+    status: "new"
+  },
+  {
+    title: "Thoroughbred Industry Careers (TIC) Explorer Program",
+    country: "Australia",
+    age_range: "Youth/Young adults",
+    min_age: 16,
+    type: "Training Program",
+    pay: "Paid work placements",
+    travel_support: "Not specified",
+    accommodation: "Residential boot camp",
+    training: "12-week boot camp + 2 paid work placements at racing stable/stud",
+    deadline: "Rolling",
+    link: "https://www.togetherforracinginternational.com/innovative-teaching-programme-inspires-the-next-generation/",
+    reason_fit: "12-month gap year program with 12-week residential boot camp and two paid work placements; tuition scholarships available.",
+    status: "updated"
+  },
+  {
+    title: "TBA Fast Track Program",
+    country: "Australia",
+    age_range: "Young adults",
+    min_age: 18,
+    type: "Training Program",
+    pay: "Paid traineeship",
+    travel_support: "Not specified",
+    accommodation: "Free accommodation during 2-week learning block",
+    training: "12-month program with formal qualifications on stud farms",
+    deadline: "Rolling",
+    link: "https://www.ttrausnz.com.au/edition/2026-05-26/the-talent-pipeline-how-tba-is-shaping-the-next-generation",
+    reason_fit: "12-month program with work/training on top stud farms, formal qualifications, and free accommodation during learning block.",
+    status: "updated"
+  },
+  {
+    title: "Camp Chief Ouray Cabin Counselor Wrangler",
+    country: "USA",
+    age_range: "19+",
+    min_age: 19,
+    type: "Summer Camp Job",
+    pay: "$15.56/hour",
+    travel_support: "Not specified",
+    accommodation: "Room and board provided",
+    training: "Western riding instruction, barn safety, camper supervision",
+    deadline: "2025-04-01 (likely annual cycle)",
+    link: "https://www.ymca.org/get-involved/careers/opportunities/open-positions/19902",
+    reason_fit: "Summer job in Colorado Rockies combining cabin counseling with western riding instruction; includes room/board. Note: Deadline shown is 2025, likely reopens annually.",
+    status: "needs_manual_check"
+  },
+  {
+    title: "Lang's Horse & Pony Farm Summer Camp Counselor",
+    country: "USA",
+    age_range: "18+",
+    min_age: 18,
+    type: "Summer Camp Job",
+    pay: "Starting at $18/hour + tips",
+    travel_support: "Not specified",
+    accommodation: "Not specified",
+    training: "Riding instruction, horsemanship, child supervision",
+    deadline: "2026-06-15",
+    link: "https://ascc.wsu.edu/jobs/langs-horse-and-pony-farm-summer-horse-camp-counselor/",
+    reason_fit: "8-week summer job in Washington State teaching riding lessons; competitive pay starting at $18/hour plus tips and paid sick leave.",
+    status: "new"
+  },
+  {
+    title: "Work to Ride Program",
+    country: "USA",
+    age_range: "7-18",
+    min_age: 7,
+    type: "Youth Program",
+    pay: "Free participation",
+    travel_support: "Not specified",
+    accommodation: "Not applicable (day program)",
+    training: "Horsemanship, polo, life skills, academic support",
+    deadline: "Rolling",
+    link: "https://worktoride.net/home/",
+    reason_fit: "Free year-round equestrian program for under-resourced Philadelphia youth; includes riding, polo, homework support, and college guidance.",
+    status: "updated"
+  },
+  {
+    title: "British Racing School Level 2 Course",
+    country: "UK",
+    age_range: "16-18",
+    min_age: 16,
+    type: "Education Course",
+    pay: "Not specified (education program)",
+    travel_support: "Not specified",
+    accommodation: "Non-residential (live at home)",
+    training: "Racehorse care, exercise, stable management, riding",
+    deadline: "Rolling for September intake",
+    link: "https://brs.org.uk/new-course-for-16-18-year-olds/",
+    reason_fit: "Two-year Level 2 qualification for 16-18 year olds with hands-on experience working with 70 racehorses at world-class Newmarket facilities.",
+    status: "updated"
+  },
+  {
+    title: "USEF Horsemastership Training Series",
+    country: "USA",
+    age_range: "16-21",
+    min_age: 16,
+    type: "Training Clinic",
+    pay: "Free (invitation/wild card)",
+    travel_support: "Not specified",
+    accommodation: "Not specified",
+    training: "Show jumping training with top professionals",
+    deadline: "November (annual cycle)",
+    link: "https://www.usef.org/media/press-releases/us-equestrian-announces-2025-usef-horsemastership",
+    reason_fit: "Elite training series for 16-21 year olds competing at 1.40m+; includes mounted/unmounted sessions with top clinicians. Note: Deadline typically in November for following January clinic.",
+    status: "needs_manual_check"
+  },
+  {
+    title: "USEF Dressage Youth Training Series",
+    country: "USA",
+    age_range: "Youth/U25",
+    min_age: 16,
+    type: "Training Clinic",
+    pay: "Free (invitation/wild card)",
+    travel_support: "Not specified",
+    accommodation: "Not specified",
+    training: "Dressage training at Global Dressage Festival/HITS Del Mar",
+    deadline: "November (annual cycle)",
+    link: "https://www.usef.org/media/press-releases/us-equestrian-announces-dates-locations-for-7",
+    reason_fit: "Training series for youth dressage athletes including U25, Young Rider, Junior divisions; wild card applications available.",
+    status: "needs_manual_check"
+  }
+];
+
+function normalizeKey(value) {
+  return String(value || "")
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-zа-я0-9]+/gi, " ")
+    .trim();
+}
+
+function normalizeCountry(country) {
+  const map = {
+    usa: "USA",
+    uk: "UK",
+    ireland: "Ирландия",
+    germany: "Германия",
+    spain: "Испания",
+    portugal: "Португалия",
+    denmark: "Дания",
+    australia: "Австралия",
+    south africa: "ЮАР",
+    argentina: "Аргентина",
+    slovenia: "Словения",
+    sweden: "Швеция",
+    belgium: "Бельгия",
+    canada: "Канада"
+  };
+  const key = normalizeKey(country);
+  return map[key] || country;
+}
+
+function normalizeMinAge(minAge, ageRange) {
+  const n = Number(minAge);
+  if (Number.isFinite(n) && n > 0) {
+    return n;
+  }
+  const fromRange = String(ageRange || "").match(/\d+/);
+  return fromRange ? Number(fromRange[0]) : 16;
+}
+
+function inferCategory(type, title) {
+  const source = `${type || ""} ${title || ""}`.toLowerCase();
+  if (source.includes("scholarship") || source.includes("grant")) return "Стипендии";
+  if (source.includes("camp") || source.includes("counselor")) return "Лагери";
+  if (source.includes("volunteering") || source.includes("exchange") || source.includes("solidarity corps")) return "Обмен";
+  return "Стажировки";
+}
+
+function hasValue(value) {
+  const text = String(value || "").toLowerCase().trim();
+  return text && !text.includes("not specified") && !text.includes("not applicable") && text !== "no" && text !== "нет";
+}
+
+function inferSupport(item) {
+  const tags = new Set();
+  if (hasValue(item.accommodation)) tags.add("Жильё");
+  if (hasValue(item.travel_support)) tags.add("Дорога");
+  if (hasValue(item.training)) tags.add("Обучение");
+  const payText = String(item.pay || "").toLowerCase();
+  if (/paid|salary|stipend|allowance|\\$|aud|оплач|зарплат|gratuit|hour|week|month/.test(payText)) tags.add("Оплата");
+  const foodText = `${item.accommodation || ""} ${item.pay || ""}`.toLowerCase();
+  if (/food|board|питан|meal|laundry/.test(foodText)) tags.add("Питание");
+  if (tags.size === 0) tags.add("Обучение");
+  return Array.from(tags);
+}
+
+function inferTone(deadline, closed) {
+  const value = String(deadline || "").toLowerCase();
+  if (closed) return "neutral";
+  if (/2026-06|2026-07|срочно|urgent|june|july/.test(value)) return "red";
+  if (/2026-08|2026-09|november|ноябр|august|september/.test(value)) return "orange";
+  if (/rolling|open|открыт/.test(value)) return "green";
+  return "neutral";
+}
+
+function inferUrgent(deadline, closed) {
+  if (closed) return false;
+  const value = String(deadline || "").toLowerCase();
+  return /2026-06|2026-07|срочно|urgent|june|july/.test(value);
+}
+
+function mapIncoming(item) {
+  const status = String(item.status || "new").toLowerCase();
+  const closed = status === "closed";
+  const baseCountry = normalizeCountry(item.country);
+  const name = item.title;
+  const org = item.title.includes(":") ? item.title.split(":")[0].trim() : item.title;
+  const check = status === "needs_manual_check" ? item.reason_fit : null;
+  return {
+    name,
+    org,
+    category: inferCategory(item.type, item.title),
+    baseCountry,
+    country: baseCountry,
+    age: item.age_range || "16+",
+    minAge: normalizeMinAge(item.min_age, item.age_range),
+    deadline: item.deadline || "Уточнить",
+    tone: inferTone(item.deadline, closed),
+    support: inferSupport(item),
+    pay: item.pay || "Уточнить",
+    desc: item.reason_fit || item.training || "Уточнить детали на сайте программы.",
+    url: item.link,
+    urgent: inferUrgent(item.deadline, closed),
+    check,
+    closed
+  };
+}
+
+function isSameProgram(existing, incoming) {
+  if (existing.url === incoming.url) return true;
+  const a = normalizeKey(existing.name);
+  const b = normalizeKey(incoming.name);
+  if (a === b) return true;
+  if (a.includes("skatlica") && b.includes("skatlica")) return true;
+  if (a.includes("american horse council") && b.includes("american horse council")) return true;
+  if (a.includes("british racing school") && b.includes("british racing school")) return true;
+  return false;
+}
+
+function mergePrograms(base, feed) {
+  const merged = base.map(program => ({ ...program }));
+  let nextId = merged.reduce((maxId, p) => Math.max(maxId, p.id), 0) + 1;
+
+  for (const item of feed) {
+    const mapped = mapIncoming(item);
+    const idx = merged.findIndex(existing => isSameProgram(existing, mapped));
+    if (idx >= 0) {
+      merged[idx] = { ...merged[idx], ...mapped, id: merged[idx].id };
+    } else {
+      merged.push({ ...mapped, id: nextId++ });
+    }
+  }
+
+  return merged;
+}
+
+const PROGRAMS = mergePrograms(BASE_PROGRAMS, LATEST_FEED);
 
 let activeCategory = "all";
 let activeCountry = "all";
@@ -797,21 +1373,48 @@ function toggleCard(id) {
 
 function render() {
   const archiveCount = PROGRAMS.filter(p => p.closed).length;
-  const archiveBtn = document.querySelector('#cat-filter [data-cat="archive"]');
-  if (archiveBtn) {
-    archiveBtn.textContent = `Архив (${archiveCount})`;
+  const openPrograms = PROGRAMS.filter(p => !p.closed);
+  const totalCountEl = document.getElementById('total-count');
+  if (totalCountEl) {
+    totalCountEl.textContent = String(openPrograms.length);
   }
 
-  const openPrograms = PROGRAMS.filter(p => !p.closed);
+  const categoryCounts = openPrograms.reduce((acc, p) => {
+    acc[p.category] = (acc[p.category] || 0) + 1;
+    return acc;
+  }, {});
+
   const urgentCount = openPrograms.filter(p => p.urgent).length;
-  const urgentBtn = document.querySelector('#cat-filter [data-cat="urgent"]');
   const urgentCountEl = document.getElementById('urgent-count');
-  if (urgentBtn) {
-    urgentBtn.textContent = `Срочно (${urgentCount})`;
-  }
   if (urgentCountEl) {
     urgentCountEl.textContent = String(urgentCount);
   }
+
+  document.querySelectorAll('#cat-filter .chip').forEach(btn => {
+    const cat = btn.dataset.cat;
+    if (cat === 'all') {
+      btn.textContent = `Все (${openPrograms.length})`;
+    } else if (cat === 'urgent') {
+      btn.textContent = `Срочно (${urgentCount})`;
+    } else if (cat === 'archive') {
+      btn.textContent = `Архив (${archiveCount})`;
+    } else {
+      btn.textContent = `${cat} (${categoryCounts[cat] || 0})`;
+    }
+  });
+
+  const countryCounts = openPrograms.reduce((acc, p) => {
+    acc[p.baseCountry] = (acc[p.baseCountry] || 0) + 1;
+    return acc;
+  }, {});
+  document.querySelectorAll('#country-filter .chip').forEach(btn => {
+    const country = btn.dataset.country;
+    if (country === 'all') {
+      btn.textContent = `Все страны (${openPrograms.length})`;
+    } else {
+      btn.textContent = `${country} (${countryCounts[country] || 0})`;
+    }
+  });
 
   let filtered = activeCategory === 'archive'
     ? PROGRAMS.filter(p => p.closed)
