@@ -264,12 +264,27 @@
     color: var(--text2);
   }
   /* DOCUMENTS PACKAGE */
+  .card-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .card-group .card {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom: none;
+  }
   .docs-panel {
-    margin: 16px 16px 24px;
     background: var(--card);
     border: 1px solid var(--sep);
     border-radius: var(--radius);
     padding: 14px 16px;
+  }
+  .docs-panel--inline {
+    margin: 0;
+    border-top: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
   }
   .docs-panel--active {
     border-color: var(--blue);
@@ -575,16 +590,6 @@
 <div class="count-bar" id="count-bar">Показано: 43 программ</div>
 
 <div class="programs" id="programs-list"></div>
-
-<div class="docs-panel" id="docs-panel">
-  <div class="docs-title">Пакет документов для подачи</div>
-  <div class="docs-subtitle" id="docs-subtitle">Шаг 2: выбери программу в списке выше — здесь появится чек-лист под эту заявку.</div>
-  <div class="docs-selected" id="docs-selected">Программа пока не выбрана.</div>
-  <ul class="docs-list" id="docs-list">
-    <li>Нажми «Выбрать» на карточке нужной программы.</li>
-  </ul>
-  <div class="docs-note" id="docs-note" style="display:none;"></div>
-</div>
 
 <script>
 const DOMAINS = {
@@ -2667,7 +2672,6 @@ function jumpToProgram(id) {
   requestAnimationFrame(() => {
     const card = document.getElementById("card-" + id);
     if (card) card.scrollIntoView({ behavior: "smooth", block: "center" });
-    document.getElementById("docs-panel")?.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 }
 
@@ -2698,7 +2702,6 @@ function setAge(btn) {
 }
 
 function handleCardHeaderClick(event, id) {
-  const wasNewSelection = selectedProgramId !== id;
   if (expandedProgramId === id) {
     expandedProgramId = null;
   } else {
@@ -2706,20 +2709,12 @@ function handleCardHeaderClick(event, id) {
     selectedProgramId = id;
   }
   render();
-  if (wasNewSelection && selectedProgramId === id) {
-    requestAnimationFrame(() => {
-      document.getElementById("docs-panel")?.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-  }
 }
 
 function selectProgram(id) {
   selectedProgramId = id;
   expandedProgramId = id;
   render();
-  requestAnimationFrame(() => {
-    document.getElementById("docs-panel")?.scrollIntoView({ behavior: "smooth", block: "start" });
-  });
 }
 
 function hasMeaningfulPay(payValue) {
@@ -2779,39 +2774,105 @@ function inferDocumentChecklist(program) {
   return { list: docs, notes };
 }
 
-function renderDocumentsPanel() {
-  const panel = document.getElementById('docs-panel');
-  const subtitleEl = document.getElementById('docs-subtitle');
-  const selectedEl = document.getElementById('docs-selected');
-  const listEl = document.getElementById('docs-list');
-  const noteEl = document.getElementById('docs-note');
-  const selectedProgram = PROGRAMS.find(p => p.id === selectedProgramId);
+function buildDocumentsPanelHtml(program) {
+  if (!program) return "";
+  const pkg = inferDocumentChecklist(program);
+  const listHtml = pkg.list.map(item => `<li>☑ ${escapeHtml(item)}</li>`).join("");
+  const noteHtml = pkg.notes.length > 0
+    ? `<div class="docs-note">${escapeHtml(pkg.notes.join(" "))}</div>`
+    : "";
+  return `
+<div class="docs-panel docs-panel--inline docs-panel--active" id="docs-panel-${program.id}">
+  <div class="docs-title">Пакет документов для подачи</div>
+  <div class="docs-subtitle">Чек-лист для этой программы:</div>
+  <div class="docs-selected">Выбрано: ${escapeHtml(program.name)} · ${escapeHtml(program.baseCountry)}</div>
+  <ul class="docs-list">${listHtml}</ul>
+  ${noteHtml}
+</div>`;
+}
 
-  if (panel) {
-    panel.classList.toggle('docs-panel--active', Boolean(selectedProgram));
-  }
+function renderProgramCard(p) {
+  const toneMap = { green: 'green', orange: 'orange', red: 'red', neutral: '', blue: 'blue' };
+  const toneClass = toneMap[p.tone] || '';
+  const deadlineEl = p.closed
+    ? `<span class="badge">Закрыта</span>`
+    : toneClass
+      ? `<span class="badge ${toneClass}">${p.deadline}</span>`
+      : `<span class="badge">${p.deadline}</span>`;
 
-  if (!selectedProgram) {
-    if (subtitleEl) subtitleEl.textContent = "Шаг 2: выбери программу в списке выше — здесь появится чек-лист под эту заявку.";
-    selectedEl.textContent = "Программа пока не выбрана.";
-    listEl.innerHTML = "<li>Нажми «Выбрать» на карточке нужной программы.</li>";
-    noteEl.style.display = "none";
-    noteEl.textContent = "";
-    return;
-  }
+  const supportTags = p.support.map(s => `<span class="tag">${s}</span>`).join('');
 
-  const pkg = inferDocumentChecklist(selectedProgram);
-  if (subtitleEl) subtitleEl.textContent = "Чек-лист сформирован под выбранную программу:";
-  selectedEl.textContent = `Выбрано: ${selectedProgram.name} · ${selectedProgram.baseCountry}`;
-  listEl.innerHTML = pkg.list.map(item => `<li>☑ ${item}</li>`).join("");
+  const checkEl = p.check
+    ? `<div class="inner-callout info"><strong>Требует проверки:</strong> ${p.check}</div>`
+    : '';
 
-  if (pkg.notes.length > 0) {
-    noteEl.style.display = "block";
-    noteEl.textContent = pkg.notes.join(" ");
-  } else {
-    noteEl.style.display = "none";
-    noteEl.textContent = "";
-  }
+  const urgentEl = p.urgent
+    ? `<div class="inner-callout"><strong>Срочный дедлайн</strong> — подавать немедленно, осталось несколько недель.</div>`
+    : '';
+
+  const btnClass = p.urgent ? 'open-btn urgent-btn' : 'open-btn';
+  const closedEl = p.closed
+    ? `<div class="inner-callout"><strong>Программа закрыта</strong> — дедлайн прошёл или набор завершён.</div>`
+    : '';
+
+  const newBadge = p.isNew ? `<span class="badge new-badge">Новое</span>` : '';
+
+  return `
+<div class="card${p.urgent ? ' urgent' : ''}${p.isNew ? ' new' : ''}${p.closed ? ' closed' : ''}${selectedProgramId === p.id ? ' selected' : ''}${expandedProgramId === p.id ? ' open' : ''}" id="card-${p.id}">
+  <div class="card-header" onclick="handleCardHeaderClick(event, ${p.id})">
+    <div class="card-header-left">
+      <div class="card-title">${p.name}</div>
+      <div class="card-meta">
+        ${newBadge}
+        <span class="badge blue">${p.country}</span>
+        <span class="badge dates">${p.dates || 'Даты уточняются'}</span>
+        <span class="badge">возраст: ${p.age}</span>
+        ${deadlineEl}
+      </div>
+    </div>
+    <div class="card-header-actions">
+      <button class="select-btn${selectedProgramId === p.id ? ' active' : ''}" onclick="event.stopPropagation(); selectProgram(${p.id})">
+        ${selectedProgramId === p.id ? 'Выбрано' : 'Выбрать'}
+      </button>
+      <div class="chevron">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+          <path d="M2 4L6 8L10 4" stroke="#888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="field">
+      <div class="field-label">Организация</div>
+      <div class="field-value">${p.org}</div>
+    </div>
+    <div class="field">
+      <div class="field-label">Даты программы</div>
+      <div class="field-value highlight">${p.dates || 'Уточнить на сайте'}</div>
+    </div>
+    <div class="field">
+      <div class="field-label">Дедлайн подачи</div>
+      <div class="field-value">${p.deadline}</div>
+    </div>
+    <div class="field">
+      <div class="field-label">Что покрывается</div>
+      <div class="tags">${supportTags}</div>
+    </div>
+    <div class="field">
+      <div class="field-label">Финансирование / Оплата</div>
+      <div class="field-value highlight">${p.pay}</div>
+    </div>
+    <div class="field">
+      <div class="field-label">О программе</div>
+      <p class="desc">${p.summary || p.desc}</p>
+    </div>
+    ${p.summary ? `<div class="field"><div class="field-label">Доступность</div><p class="visa-note">${p.desc}</p></div>` : ''}
+    ${urgentEl}
+    ${closedEl}
+    ${checkEl}
+    <a href="${p.url}" target="_blank" rel="noopener" class="${btnClass}">Открыть программу →</a>
+  </div>
+</div>`;
 }
 
 function renderNewPanel(scopedOpen) {
@@ -2888,7 +2949,6 @@ function render() {
   if (!domainPrograms.some(p => p.id === selectedProgramId)) {
     selectedProgramId = null;
   }
-  renderDocumentsPanel();
 
   if (filtered.length === 0) {
     list.innerHTML = '<div class="empty">Нет программ по выбранным фильтрам.<br>Попробуй другую комбинацию.</div>';
@@ -2901,87 +2961,9 @@ function render() {
   }
 
   list.innerHTML = filtered.map(p => {
-    const toneMap = { green: 'green', orange: 'orange', red: 'red', neutral: '', blue: 'blue' };
-    const toneClass = toneMap[p.tone] || '';
-    const deadlineEl = p.closed
-      ? `<span class="badge">Закрыта</span>`
-      : toneClass
-        ? `<span class="badge ${toneClass}">${p.deadline}</span>`
-        : `<span class="badge">${p.deadline}</span>`;
-
-    const supportTags = p.support.map(s => `<span class="tag">${s}</span>`).join('');
-
-    const checkEl = p.check
-      ? `<div class="inner-callout info"><strong>Требует проверки:</strong> ${p.check}</div>`
-      : '';
-
-    const urgentEl = p.urgent
-      ? `<div class="inner-callout"><strong>Срочный дедлайн</strong> — подавать немедленно, осталось несколько недель.</div>`
-      : '';
-
-    const btnClass = p.urgent ? 'open-btn urgent-btn' : 'open-btn';
-    const closedEl = p.closed
-      ? `<div class="inner-callout"><strong>Программа закрыта</strong> — дедлайн прошёл или набор завершён.</div>`
-      : '';
-
-    const newBadge = p.isNew ? `<span class="badge new-badge">Новое</span>` : '';
-
-    return `
-<div class="card${p.urgent ? ' urgent' : ''}${p.isNew ? ' new' : ''}${p.closed ? ' closed' : ''}${selectedProgramId === p.id ? ' selected' : ''}${expandedProgramId === p.id ? ' open' : ''}" id="card-${p.id}">
-  <div class="card-header" onclick="handleCardHeaderClick(event, ${p.id})">
-    <div class="card-header-left">
-      <div class="card-title">${p.name}</div>
-      <div class="card-meta">
-        ${newBadge}
-        <span class="badge blue">${p.country}</span>
-        <span class="badge dates">${p.dates || 'Даты уточняются'}</span>
-        <span class="badge">возраст: ${p.age}</span>
-        ${deadlineEl}
-      </div>
-    </div>
-    <div class="card-header-actions">
-      <button class="select-btn${selectedProgramId === p.id ? ' active' : ''}" onclick="event.stopPropagation(); selectProgram(${p.id})">
-        ${selectedProgramId === p.id ? 'Выбрано' : 'Выбрать'}
-      </button>
-      <div class="chevron">
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-          <path d="M2 4L6 8L10 4" stroke="#888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
-    </div>
-  </div>
-  <div class="card-body">
-    <div class="field">
-      <div class="field-label">Организация</div>
-      <div class="field-value">${p.org}</div>
-    </div>
-    <div class="field">
-      <div class="field-label">Даты программы</div>
-      <div class="field-value highlight">${p.dates || 'Уточнить на сайте'}</div>
-    </div>
-    <div class="field">
-      <div class="field-label">Дедлайн подачи</div>
-      <div class="field-value">${p.deadline}</div>
-    </div>
-    <div class="field">
-      <div class="field-label">Что покрывается</div>
-      <div class="tags">${supportTags}</div>
-    </div>
-    <div class="field">
-      <div class="field-label">Финансирование / Оплата</div>
-      <div class="field-value highlight">${p.pay}</div>
-    </div>
-    <div class="field">
-      <div class="field-label">О программе</div>
-      <p class="desc">${p.summary || p.desc}</p>
-    </div>
-    ${p.summary ? `<div class="field"><div class="field-label">Доступность</div><p class="visa-note">${p.desc}</p></div>` : ''}
-    ${urgentEl}
-    ${closedEl}
-    ${checkEl}
-    <a href="${p.url}" target="_blank" rel="noopener" class="${btnClass}">Открыть программу →</a>
-  </div>
-</div>`;
+    const cardHtml = renderProgramCard(p);
+    if (selectedProgramId !== p.id) return cardHtml;
+    return `<div class="card-group">${cardHtml}${buildDocumentsPanelHtml(p)}</div>`;
   }).join('');
 }
 
