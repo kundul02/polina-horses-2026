@@ -16,7 +16,7 @@
 |------|------|
 | [`programs-verified.json`](programs-verified.json) | Верифицированные поля по `id` программы |
 | [`programs.html`](../programs.html) | Публичная витрина |
-| [`all-programs-full.json`](all-programs-full.json) | Экспорт всех программ с runtime-id (BASE + feed + acting) |
+| [`all-programs-full.json`](all-programs-full.json) | Экспорт всех программ с runtime-id (4 раздела) |
 | [`feed-verified-overrides.json`](feed-verified-overrides.json) | Официальные поля для LATEST_FEED (ключ = URL) |
 | [`scripts/inject-verified-registry.mjs`](../scripts/inject-verified-registry.mjs) | Вставляет `VERIFIED_REGISTRY` + `.map(applyVerifiedProgram)` |
 | [`scripts/export-merged-programs.mjs`](../scripts/export-merged-programs.mjs) | Генерирует `all-programs-full.json` |
@@ -107,3 +107,14 @@ node scripts/audit-documents.mjs
 **Placeholder-записи** (URL на immigration.gov / homepage без конкретной программы) — **удалять из `LATEST_FEED`**, не показывать на сайте. Пример: feed ids 79–104 (удалены 2026-06-11).
 
 Официальные данные для feed → [`feed-verified-overrides.json`](feed-verified-overrides.json) (ключ = URL, для Jockey Club: `::internship` / `::scholarship`).
+
+## Разделы сайта (`domain`)
+
+| domain | Содержание |
+|--------|------------|
+| `castings` | Оплачиваемые кастинги (кино, реклама, театр) |
+| `volunteering` | ESC, обмен трудом, социальные проекты; фильтр **35+** только здесь |
+| `equestrian` | Лагеря, стипендии, стажировки, обмен (без кастингов и ESC) |
+| `acting` | Курсы, интенсивы, стипендии, аудиции (без кастингов и ESC) |
+
+Поле `audience` для волонтёрства: `teen` | `adult` | `both`.

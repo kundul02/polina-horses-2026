@@ -1,0 +1,41 @@
+{
+  "meta": {
+    "domain": "volunteering",
+    "updatedAt": "2026-06-13",
+    "siteSection": "Волонтёрство",
+    "ageFilters": ["16", "17", "18", "35"]
+  },
+  "sources": [
+    { "name": "European Youth Portal", "url": "https://youth.europa.eu/solidarity_en", "type": "platform" },
+    { "name": "Workaway", "url": "https://www.workaway.info/", "type": "platform" },
+    { "name": "HelpStay", "url": "https://helpstay.com/", "type": "platform" },
+    { "name": "UN Volunteers", "url": "https://www.unv.org/", "type": "platform" }
+  ],
+  "programs": {
+    "teen": {
+      "description": "16–18 (ESC с 18, обмен, социальные проекты)",
+      "siteIds": [18, 24, 31, 54, 1014, 1015, 1016, 2006, 2007]
+    },
+    "adult_35plus": {
+      "description": "Взрослые 35+ и ESC Humanitarian до 35",
+      "siteIds": [2001, 2002, 2003, 2004, 2005]
+    }
+  },
+  "active": [
+    { "id": "esc-skatlica", "siteProgramId": 18, "category": "ESC", "country": "Slovenia", "audience": "teen" },
+    { "id": "vol-pegasus", "siteProgramId": 24, "category": "Волонтёрский обмен", "country": "Spain", "audience": "teen" },
+    { "id": "vol-argentina", "siteProgramId": 31, "category": "Волонтёрский обмен", "country": "Argentina", "audience": "teen" },
+    { "id": "masa-gap", "siteProgramId": 54, "category": "Социальные проекты", "country": "Israel", "audience": "teen" },
+    { "id": "esc-pomiechowek", "siteProgramId": 1014, "category": "ESC", "country": "Poland", "audience": "teen" },
+    { "id": "esc-bialowieza", "siteProgramId": 1015, "category": "ESC", "country": "Poland", "audience": "teen" },
+    { "id": "esc-krakow", "siteProgramId": 1016, "category": "ESC", "country": "Poland", "audience": "teen" },
+    { "id": "workaway-france", "siteProgramId": 2001, "category": "35+", "country": "France", "audience": "adult" },
+    { "id": "workaway-spain", "siteProgramId": 2002, "category": "35+", "country": "Spain", "audience": "adult" },
+    { "id": "workaway-poland", "siteProgramId": 2003, "category": "35+", "country": "Poland", "audience": "adult" },
+    { "id": "unv", "siteProgramId": 2004, "category": "35+", "country": "International", "audience": "adult" },
+    { "id": "esc-humanitarian", "siteProgramId": 2005, "category": "35+", "country": "EU", "audience": "both" },
+    { "id": "esc-italy-therapy", "siteProgramId": 2006, "category": "ESC", "country": "Italy", "audience": "teen" },
+    { "id": "helpstay-uk-theatre", "siteProgramId": 2007, "category": "Социальные проекты", "country": "UK", "audience": "teen" }
+  ],
+  "checkLog": []
+}

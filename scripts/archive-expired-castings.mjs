@@ -25,12 +25,12 @@ const REGISTRIES = [
   {
     domain: "equestrian",
     path: path.join(root, "research/equestrian/castings/castings-registry.json"),
-    castingCategories: ["Кастинги"],
+    castingCategories: ["Кастинги", "Кастинги в актёрском мастерстве"],
   },
   {
     domain: "acting",
     path: path.join(root, "research/acting/castings/castings-registry.json"),
-    castingCategories: ["Кастинги в актёрском мастерстве"],
+    castingCategories: ["Кастинги", "Кастинги в актёрском мастерстве"],
   },
 ];
 
@@ -191,6 +191,7 @@ function run() {
 
     for (const program of castingPrograms) {
       const entry = findActiveEntry(registry, program.id);
+      if (!entry) continue;
       if (shouldSkipAutoArchive(program, entry)) continue;
 
       const deadlineDate = resolveDeadlineDate(program, entry);

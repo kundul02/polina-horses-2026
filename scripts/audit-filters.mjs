@@ -61,8 +61,9 @@ function visibleCount() {
   return getVisiblePrograms().length;
 }
 
-for (const domain of ["equestrian", "acting"]) {
-  for (const age of ["16", "17", "18"]) {
+for (const domain of Object.keys(DOMAINS)) {
+  const ages = DOMAINS[domain].ageTiers || ["16", "17", "18"];
+  for (const age of ages) {
     ctx.activeDomain = domain;
     ctx.activeAge = age;
     ctx.activeCountry = "all";

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/** Export all runtime programs (BASE + LATEST_FEED + acting) with assigned ids. */
+/** Export all runtime programs (4 domains) with assigned ids. */
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -20,7 +20,7 @@ const fnCode = script.slice(fnStart, fnEnd);
 const factory = new Function(
   dataCode +
     fnCode +
-    "\nreturn { BASE_PROGRAMS, LATEST_FEED, ACTING_BASE_PROGRAMS, ACTING_LATEST_FEED };"
+    "\nreturn { BASE_PROGRAMS, LATEST_FEED, ACTING_BASE_PROGRAMS, ACTING_LATEST_FEED, VOLUNTEERING_BASE_PROGRAMS, VOLUNTEERING_FEED };"
 );
 const ctx = factory();
 
@@ -201,10 +201,47 @@ function mergePrograms(base, feed, domain) {
   return merged;
 }
 
+const VOLUNTEERING_IDS = new Set([18, 24, 31, 54, 1014, 1015, 1016]);
+
+function resolveProgramDomain(program) {
+  const p = { ...program };
+  if (p.domain === "volunteering") return p;
+  if (p.domain === "castings") {
+    p.category = "Кастинги";
+    return p;
+  }
+  const name = (p.name || "").toLowerCase();
+  const cat = p.category || "";
+  if (cat === "Кастинги" || cat === "Кастинги в актёрском мастерстве") {
+    p.domain = "castings";
+    p.category = "Кастинги";
+    return p;
+  }
+  const isEsc = name.includes("esc ") || name.includes("solidarity corps") || name.includes("european solidarity");
+  const isVolExchange = name.includes("volunteer") && (name.includes("exchange") || name.includes("work exchange"));
+  const isMasaGap = name.includes("masa") && name.includes("gap");
+  if (VOLUNTEERING_IDS.has(p.id) || isEsc || isVolExchange || isMasaGap || (p.domain === "acting" && cat === "Обмен")) {
+    const origDomain = p.domain;
+    p.domain = "volunteering";
+    if (!p.audience) p.audience = "teen";
+    if (p.category === "35+" || p.audience === "adult") p.category = "35+";
+    else if (isEsc || cat === "ESC" || (origDomain === "acting" && cat === "Обмен")) p.category = "ESC";
+    else if (isVolExchange || cat === "Волонтёрский обмен") p.category = "Волонтёрский обмен";
+    else if (!["ESC", "Волонтёрский обмен", "Социальные проекты", "35+"].includes(p.category)) p.category = "Социальные проекты";
+    return p;
+  }
+  if (!p.domain || p.domain === "equestrian" || p.domain === "acting") {
+    if (p.domain === "acting") return p;
+    return { ...p, domain: p.domain || "equestrian" };
+  }
+  return p;
+}
+
 const all = [
   ...mergePrograms(ctx.BASE_PROGRAMS, ctx.LATEST_FEED, "equestrian"),
   ...mergePrograms(ctx.ACTING_BASE_PROGRAMS, ctx.ACTING_LATEST_FEED, "acting"),
-];
+  ...mergePrograms(ctx.VOLUNTEERING_BASE_PROGRAMS || [], ctx.VOLUNTEERING_FEED || [], "volunteering"),
+].map(resolveProgramDomain);
 
 const out = all.map((p) => ({
   id: p.id,
@@ -227,6 +264,7 @@ const out = all.map((p) => ({
   urgent: p.urgent,
   check: p.check,
   documents: p.documents,
+  audience: p.audience,
 }));
 
 const outPath = path.join(root, "research", "all-programs-full.json");

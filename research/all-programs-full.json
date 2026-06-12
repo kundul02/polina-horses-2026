@@ -295,7 +295,7 @@
     "url": "https://horseridingcamp.com",
     "closed": false,
     "urgent": false,
-    "check": "Уточнить наличие стипендий и поддержки дороги",
+    "check": null,
     "documents": [
       "Camp Registration & Enrollment Form",
       "Medical History & Health Form (signed by physician)",
@@ -475,7 +475,7 @@
     "url": "https://www.ipzv.de/jugend/feif-youth-cup-2026-english.html",
     "closed": false,
     "urgent": false,
-    "check": "Нужна исландская лошадь или аренда — уточнять через нац. федерацию",
+    "check": null,
     "documents": [
       "FEIF Youth Cup Entry Form (via national association)",
       "Rider's Passport & National Federation Membership Proof",
@@ -518,10 +518,10 @@
   },
   {
     "id": 18,
-    "domain": "equestrian",
+    "domain": "volunteering",
     "name": "European Solidarity Corps: Join our herd of horses at Škatlica",
     "org": "European Solidarity Corps",
-    "category": "Обмен",
+    "category": "ESC",
     "baseCountry": "Словения",
     "country": "Словения",
     "age": "18-30",
@@ -545,11 +545,12 @@
       "ESC Volunteering Application Form (specific to Škatlica)",
       "CV / Resume (in English)",
       "Motivation Letter (explaining interest in horse care and youth work)"
-    ]
+    ],
+    "audience": "teen"
   },
   {
     "id": 19,
-    "domain": "equestrian",
+    "domain": "castings",
     "name": "Sportswear Commercial — Road Casting",
     "org": "Road Casting (UK)",
     "category": "Кастинги",
@@ -580,7 +581,7 @@
   },
   {
     "id": 20,
-    "domain": "equestrian",
+    "domain": "castings",
     "name": "Real London Casting — Male Horse Rider (20–28)",
     "org": "Real London Casting",
     "category": "Кастинги",
@@ -629,7 +630,7 @@
     "url": "http://www.crossogue-equestrian.ie/teen-camps/",
     "closed": false,
     "urgent": false,
-    "check": "Уточнить наличие финансовой поддержки или стипендий",
+    "check": null,
     "documents": [
       "Crossogue Teen Camp Booking Form",
       "Medical Information & Dietary Requirements Form",
@@ -658,8 +659,8 @@
     "desc": "Доступно: виза Ирландии (Visitor Visa) · Подача: форма бронирования на сайте Clonshire",
     "url": "https://www.clonshire.com/summer-in-horse-haven.html",
     "closed": false,
-    "urgent": true,
-    "check": "Остались буквально 1–2 места — связаться немедленно по email",
+    "urgent": false,
+    "check": null,
     "documents": [
       "Clonshire Camp Booking Form",
       "Rider Profile & Experience Level Questionnaire",
@@ -699,10 +700,10 @@
   },
   {
     "id": 24,
-    "domain": "equestrian",
+    "domain": "volunteering",
     "name": "Volunteer Work Exchange — Pegasus",
     "org": "Pegasus Riding Centre, Andalucia",
-    "category": "Стажировки",
+    "category": "Волонтёрский обмен",
     "baseCountry": "Испания",
     "country": "Испания (Andalucia)",
     "age": "13+ лет",
@@ -725,7 +726,8 @@
       "Equestrian Experience Summary (detailing stable management and riding)",
       "Riding Video (if applying to exercise/school horses)",
       "Parental Consent Form (for volunteers aged 13-17)"
-    ]
+    ],
+    "audience": "teen"
   },
   {
     "id": 25,
@@ -777,7 +779,7 @@
     "url": "https://pferdeglueck-pappenheimer.de/praktikanten-gesucht-fuer-2026",
     "closed": false,
     "urgent": false,
-    "check": "Уточнить возможность для иностранных участников и требования к немецкому",
+    "check": null,
     "documents": [
       "Pferdeglück Internship Application Form / Email",
       "CV with photo and equestrian background",
@@ -807,7 +809,7 @@
     "url": "https://riesenbeck-international.com/en/lwea/summer-camp/",
     "closed": false,
     "urgent": false,
-    "check": "Уточнить, открыта ли ещё регистрация на август 2026",
+    "check": null,
     "documents": [
       "LWEA Summer Camp Registration Form",
       "Riding Video (demonstrating jumping 1.00m-1.10m courses)",
@@ -906,10 +908,10 @@
   },
   {
     "id": 31,
-    "domain": "equestrian",
+    "domain": "volunteering",
     "name": "Volunteer Rider — Estancia Argentina",
     "org": "HelpStay / Estancia, Buenos Aires Province",
-    "category": "Стажировки",
+    "category": "Социальные проекты",
     "baseCountry": "Аргентина",
     "country": "Аргентина",
     "age": "18+ (опытные всадники)",
@@ -925,13 +927,14 @@
     "url": "https://freevolunteering.net/horse-riding-estancia-argentina/",
     "closed": false,
     "urgent": false,
-    "check": "Требуется 18+, испанский язык и опыт конного туризма",
+    "check": null,
     "documents": [
       "HelpStay Volunteer Profile & Application",
       "Equestrian CV & Experience Description",
       "Riding Video Link (demonstrating confident riding in open spaces)",
       "Proof of Travel & Medical Insurance"
-    ]
+    ],
+    "audience": "teen"
   },
   {
     "id": 32,
@@ -1074,7 +1077,7 @@
     "url": "https://scatteredacres.net/working-students/",
     "closed": false,
     "urgent": false,
-    "check": "Уточнить условия жилья и финальные финансовые условия напрямую",
+    "check": null,
     "documents": [
       "Fellowship/Working Student Contract",
       "Fellowship/Working Student Summary",
@@ -1103,7 +1106,7 @@
     "url": "http://www.veronaequestrian.com/working-student-program.html",
     "closed": false,
     "urgent": false,
-    "check": "Требует ручной проверки: подтвердить актуальность набора и условия проживания",
+    "check": null,
     "documents": [
       "Application email with equestrian resume",
       "Riding video link",
@@ -1182,10 +1185,10 @@
       "Обучение"
     ],
     "desc": "Доступность: программа закрыта · Язык: английский · Подача: недоступна",
-    "url": "https://useventing.com/",
+    "url": "https://useafoundation.org/retired-grants",
     "closed": true,
     "urgent": false,
-    "check": "Требует ручной проверки: актуальный дедлайн и eligibility в текущем сезоне",
+    "check": null,
     "documents": [
       "Application form (historical)",
       "Amateur status declaration",
@@ -1269,10 +1272,10 @@
       "Обучение"
     ],
     "desc": "Доступность: канадский паспорт / разрешение на работу · Язык: английский · Подача: email franklandsfarm@myhighspeed.ca",
-    "url": "https://horsesport.com/magazine/business/what-its-like-being-working-student/",
+    "url": "https://www.franklandsfarm.com/services.html",
     "closed": false,
     "urgent": false,
-    "check": "Требует ручной проверки: конкретные условия программы и актуальный набор",
+    "check": null,
     "documents": [
       "Application email to franklandsfarm@myhighspeed.ca",
       "Equestrian resume with dressage/riding experience",
@@ -1330,7 +1333,7 @@
     "url": "https://www.secretariatcenter.org/internships",
     "closed": false,
     "urgent": true,
-    "check": "Уточнить условия проживания и длительность Fall session",
+    "check": null,
     "documents": [
       "Secretariat Center Internship Application Form",
       "Proof of current health insurance",
@@ -1340,7 +1343,7 @@
   },
   {
     "id": 46,
-    "domain": "equestrian",
+    "domain": "castings",
     "name": "Fallow — Lead Actress (Romi)",
     "org": "Marott Productions",
     "category": "Кастинги",
@@ -1370,7 +1373,7 @@
   },
   {
     "id": 47,
-    "domain": "equestrian",
+    "domain": "castings",
     "name": "Love in the Wind — Luke (Lead Cowboy)",
     "org": "Moviehead Pictures · Tri Nguyen, casting dir.",
     "category": "Кастинги",
@@ -1400,7 +1403,7 @@
   },
   {
     "id": 48,
-    "domain": "equestrian",
+    "domain": "castings",
     "name": "Love in the Wind — Savannah (Ranch Hand Lead)",
     "org": "Moviehead Pictures · Tri Nguyen, casting dir.",
     "category": "Кастинги",
@@ -1430,7 +1433,7 @@
   },
   {
     "id": 49,
-    "domain": "equestrian",
+    "domain": "castings",
     "name": "Blood & Soil — Horseback Riders (17–18)",
     "org": "Blood & Soil production",
     "category": "Кастинги",
@@ -1459,7 +1462,7 @@
   },
   {
     "id": 50,
-    "domain": "equestrian",
+    "domain": "castings",
     "name": "Netflix Series — Women Riders (Lupus Films)",
     "org": "Lupus Films",
     "category": "Кастинги",
@@ -1478,7 +1481,7 @@
     "url": "https://wall.mymotheragency.com/spainmujeres-que-monten-a-caballo-para-serie-de-netflix-a-nivel-nacional-cinema/",
     "closed": false,
     "urgent": false,
-    "check": "Только 20+; для 16 лет — держать в базе castings-registry.json watch",
+    "check": null,
     "documents": [
       "Application email to lupuscast@gmail.com",
       "Equestrian and acting CV",
@@ -1563,7 +1566,7 @@
     "url": "https://www.carmelfarm.org/",
     "closed": false,
     "urgent": false,
-    "check": "Вторичный приоритет — sport track в Jockey Club/Rothschild",
+    "check": null,
     "documents": [
       "Therapeutic Riding Intake Form",
       "Health insurance approval (Kupat Holim subsidy form)",
@@ -1572,10 +1575,10 @@
   },
   {
     "id": 54,
-    "domain": "equestrian",
+    "domain": "volunteering",
     "name": "Masa Israel — Equestrian Gap Experience",
     "org": "Masa Israel Journey + local stables",
-    "category": "Обмен",
+    "category": "Социальные проекты",
     "baseCountry": "Израиль",
     "country": "Израиль",
     "age": "18–35 лет",
@@ -1592,20 +1595,21 @@
     "url": "https://www.masaisrael.org/",
     "closed": false,
     "urgent": false,
-    "check": "Не приоритет: уже резидент на студ. визе до 18",
+    "check": null,
     "documents": [
       "Masa Israel Online Application",
       "Proof of Jewish heritage (for grant eligibility)",
       "Medical declaration form",
       "Academic transcripts or resume"
-    ]
+    ],
+    "audience": "teen"
   },
   {
     "id": 55,
-    "domain": "equestrian",
+    "domain": "volunteering",
     "name": "European Solidarity Corps: The Horse Speaks All Languages",
     "org": "European Solidarity Corps",
-    "category": "Обмен",
+    "category": "ESC",
     "baseCountry": "Швеция",
     "country": "Швеция",
     "age": "18-30",
@@ -1624,14 +1628,15 @@
     "url": "https://youth.europa.eu/solidarity/opportunity/39919_en",
     "closed": true,
     "urgent": false,
-    "check": null
+    "check": null,
+    "audience": "teen"
   },
   {
     "id": 56,
-    "domain": "equestrian",
+    "domain": "volunteering",
     "name": "European Solidarity Corps: Volunteering in nature - Landschap De Liereman",
     "org": "European Solidarity Corps",
-    "category": "Обмен",
+    "category": "ESC",
     "baseCountry": "Бельгия",
     "country": "Бельгия",
     "age": "18-30",
@@ -1650,7 +1655,8 @@
     "url": "https://youth.europa.eu/solidarity/opportunity/49730_en",
     "closed": true,
     "urgent": false,
-    "check": null
+    "check": null,
+    "audience": "teen"
   },
   {
     "id": 57,
@@ -2261,7 +2267,7 @@
     "url": "https://www.amda.edu/",
     "closed": false,
     "urgent": false,
-    "check": "Уточнить размер стипендий и international eligibility",
+    "check": null,
     "documents": [
       "Заполненная онлайн-заявка",
       "Прохождение телефонного интервью (10–15 минут)",
@@ -2387,7 +2393,7 @@
     "url": "https://tisch.nyu.edu/special-programs/high-school-programs",
     "closed": true,
     "urgent": false,
-    "check": "Проверить international eligibility",
+    "check": null,
     "documents": [
       "Заполненная онлайн-заявка на SlideRoom (регистрационный сбор $75)",
       "Творческое резюме (Creative Résumé) со ссылками на работы (опционально)",
@@ -2488,7 +2494,7 @@
     "url": "https://www.nyt.org.uk/auditions",
     "closed": true,
     "urgent": false,
-    "check": "Аудиции 2026 закрыты — мониторить 2027",
+    "check": null,
     "documents": [
       "Регистрация на портале NYT Hub (£2 в месяц или £24 в год)",
       "Заполненная форма заявки на прослушивание",
@@ -2612,7 +2618,7 @@
     "url": "https://www.coursflorent.fr/",
     "closed": false,
     "urgent": false,
-    "check": "Подтвердить English/French tracks",
+    "check": null,
     "documents": [
       "Онлайн-регистрация в каталоге Cours Florent",
       "Полная оплата курса (возможно частичное покрытие через Pass Culture для резидентов Франции)",
@@ -2622,10 +2628,10 @@
   },
   {
     "id": 1014,
-    "domain": "acting",
+    "domain": "volunteering",
     "name": "ESC — Culture Centre Pomiechówek",
     "org": "GOK Pomiechówek",
-    "category": "Обмен",
+    "category": "ESC",
     "baseCountry": "Польша",
     "country": "Poland",
     "age": "18–30 лет",
@@ -2652,14 +2658,15 @@
       "Заполненная онлайн-заявка на вакансию № 49502",
       "Резюме (CV) на английском языке",
       "Мотивационное письмо с описанием творческих идей и опыта работы с детьми"
-    ]
+    ],
+    "audience": "teen"
   },
   {
     "id": 1015,
-    "domain": "acting",
+    "domain": "volunteering",
     "name": "ESC — ART Summer Białowieża",
     "org": "A3Teatr / EKS",
-    "category": "Обмен",
+    "category": "ESC",
     "baseCountry": "Польша",
     "country": "Poland",
     "age": "18–30 лет",
@@ -2686,14 +2693,15 @@
       "Заполненная онлайн-заявка на вакансию № 51686",
       "Резюме (CV) на английском языке",
       "Короткая видео-презентация или описание творческих талантов (игра на инструментах, пение, актерский опыт)"
-    ]
+    ],
+    "audience": "teen"
   },
   {
     "id": 1016,
-    "domain": "acting",
+    "domain": "volunteering",
     "name": "ESC — IntegrART Krakow",
     "org": "Łokietek Cultural Club",
-    "category": "Обмен",
+    "category": "ESC",
     "baseCountry": "Польша",
     "country": "Poland",
     "age": "18–30 лет",
@@ -2714,14 +2722,15 @@
     "url": "https://youth.europa.eu/solidarity/opportunity/50671_en",
     "closed": false,
     "urgent": true,
-    "check": "URGENT — подавать немедленно",
+    "check": null,
     "documents": [
       "Зарегистрированный профиль в системе European Solidarity Corps",
       "Заполненная онлайн-заявка на вакансию № 50671",
       "Специальная заполненная анкета проекта (из Google Drive проекта)",
       "Резюме (CV) на английском языке",
       "Мотивационное письмо"
-    ]
+    ],
+    "audience": "teen"
   },
   {
     "id": 1017,
@@ -2744,7 +2753,7 @@
     "desc": "Доступно: виза США F-1 · Язык: английский (свободный) · Возраст: 8–18 лет (3–12 классы) · Подача: онлайн-заявка на портале Education Community.",
     "url": "https://www.interlochen.org/summer-camp/admission/how-to-apply-to-arts-camp",
     "closed": true,
-    "urgent": true,
+    "urgent": false,
     "check": null,
     "documents": [
       "Заполненная онлайн-заявка на портале Education Community",
@@ -2778,7 +2787,7 @@
     "url": "https://www.masaisrael.org/company/jaffa-theatre-en-c/",
     "closed": false,
     "urgent": false,
-    "check": "18+; не приоритет — уже в стране на студ. визе",
+    "check": null,
     "documents": [
       "Подтверждение еврейского происхождения (право на репатриацию по Закону о возвращении)",
       "Подтверждение статуса студента в Израиле (действующая виза A/2)",
@@ -2810,7 +2819,7 @@
     "url": "https://www.beit-zvi.com/?CategoryID=164",
     "closed": false,
     "urgent": true,
-    "check": "Подготовить monologues + песню на иврите к аудиции",
+    "check": null,
     "documents": [
       "Действующий паспорт и студенческая виза A/2 в Израиле",
       "Заполненная регистрационная форма на сайте Beit Zvi",
@@ -2842,7 +2851,7 @@
     "url": "https://aicf.org/",
     "closed": false,
     "urgent": false,
-    "check": "Конкурсный audition; готовить monologues заранее",
+    "check": null,
     "documents": [
       "Действующий паспорт и израильская студенческая виза A/2",
       "Подтверждение обучения в признанном израильском творческом учебном заведении (например, Beit Zvi)",
@@ -2850,5 +2859,977 @@
       "Прохождение многоэтапного прослушивания (оценка независимым жюри из 3 экспертов)",
       "Рекомендательные письма от преподавателей учебного заведения"
     ]
+  },
+  {
+    "id": 1021,
+    "domain": "castings",
+    "name": "SisterGirls — Featured Teen Roles",
+    "org": "Yarbrough Media Productions",
+    "category": "Кастинги",
+    "baseCountry": "USA",
+    "country": "USA (Atlanta, GA)",
+    "age": "13–17 (featured teen); Trey male 15–17",
+    "minAge": 13,
+    "deadline": "28 июня 2026",
+    "dates": "Filming in Atlanta area (2026)",
+    "pay": "Paid project; IMDb + on-screen credit; meals & craft services on set",
+    "support": [
+      "Оплата",
+      "Питание"
+    ],
+    "summary": "Кастинг featured teen-ролей (Shanay, Jasmine, Paris, Carson, Miyah, Haley, Trey) в драматическом сериале SisterGirls. Atlanta, оплачиваемо.",
+    "desc": "Тип: TV series · USA (Atlanta) · Актёрство: featured teen · Оплата: да · Контакт: Project Casting / Yarbrough Media",
+    "url": "https://projectcasting.com/job/teen-casting-call-for-coming-of-age-drama-series",
+    "closed": false,
+    "urgent": true,
+    "check": null,
+    "documents": [
+      "Application via Project Casting portal",
+      "Acting CV / resume",
+      "Headshots + full-body photos",
+      "Self-tape / video reel (singing ability required for some roles)",
+      "Parental consent for performers under 18"
+    ]
+  },
+  {
+    "id": 1022,
+    "domain": "castings",
+    "name": "Untitled UK Feature — Autistic Teen Lead",
+    "org": "Gilbert and Covell Casting",
+    "category": "Кастинги",
+    "baseCountry": "UK",
+    "country": "UK (London)",
+    "age": "14–22 (playing 14–16); 16+ если convincingly younger teen",
+    "minAge": 14,
+    "deadline": "5 июля 2026 (rolling)",
+    "dates": "4 weeks from ~3 August 2026, London",
+    "pay": "£4,104 lead (PACT-Equity Very Low Budget Film Agreement)",
+    "support": [
+      "Оплата"
+    ],
+    "summary": "Главная роль аутистичного подростка в независимом британском feature о Special Educational Needs. Оплачиваемый lead.",
+    "desc": "Тип: feature film · UK (London) · Актёрство: lead · Оплата: да · Контакт: Gilbert and Covell via Project Casting",
+    "url": "https://projectcasting.com/job/feature-film-open-casting-call-for-lead-roles",
+    "closed": false,
+    "urgent": false,
+    "check": null,
+    "documents": [
+      "Application via Project Casting / Mandy listing",
+      "Acting CV highlighting authentic representation",
+      "Recent headshots",
+      "Self-tape with UK accent dialogue",
+      "Proof of swimming ability + comfort with physical scenes (walking, climbing railings)",
+      "Parental consent if under 18"
+    ]
+  },
+  {
+    "id": 1023,
+    "domain": "castings",
+    "name": "Josephine Baker Biopic — Young Josephine (12)",
+    "org": "Joanna Levinger Casting",
+    "category": "Кастинги",
+    "baseCountry": "Франция",
+    "country": "France / UK / Europe",
+    "age": "12–16 лет",
+    "minAge": 12,
+    "deadline": "13 июня 2026",
+    "dates": "Shoot UK/Europe (FKA Twigs biopic, dir. Maïmouna Doucouré)",
+    "pay": "Paid principal role (rate on selection)",
+    "support": [
+      "Оплата"
+    ],
+    "summary": "Кастинг молодой актрисы на роль 12-летней Josephine Baker в биopic с FKA Twigs. Танец + American accent обязательны.",
+    "desc": "Тип: feature film · France/Europe · Актёрство: lead · Оплата: да · Контакт: Joanna Levinger Casting / Project Casting",
+    "url": "https://projectcasting.com/job/josephine-baker-biopic-starring-fka-twigs-principal-role-open-casting-call",
+    "closed": false,
+    "urgent": true,
+    "check": null,
+    "documents": [
+      "Application via Project Casting portal",
+      "Headshots + full-body photos (height ≤155 cm)",
+      "Dance reel / movement footage",
+      "Self-tape with American accent",
+      "Acting CV / resume",
+      "Parental consent + work permit docs if under 18"
+    ]
+  },
+  {
+    "id": 1024,
+    "domain": "castings",
+    "name": "A Bit of Heaven — ANTWON (Lead)",
+    "org": "Independent proof-of-concept production",
+    "category": "Кастинги",
+    "baseCountry": "USA",
+    "country": "USA (NYC / NJ)",
+    "age": "14–16 лет (male, African-American)",
+    "minAge": 14,
+    "deadline": "21 июня 2026",
+    "dates": "Shoot July 18–20, 2026 (NYC/NJ)",
+    "pay": "Meals + screen credit + reel footage (proof-of-concept)",
+    "support": [
+      "Оплата"
+    ],
+    "summary": "Lead teenage boy ANTWON в feature A Bit of Heaven. LOCAL NY/NJ only. Reel + credit, без cash rate.",
+    "desc": "Тип: feature film · USA (NYC/NJ) · Актёрство: lead · Оплата: reel/credit (не cash) · Контакт: KidsCasting portal",
+    "url": "https://kidscasting.com/castingcall/605628",
+    "closed": false,
+    "urgent": true,
+    "check": null,
+    "documents": [
+      "Application via KidsCasting portal (ID 605628)",
+      "Headshot + acting reel/clip",
+      "Age + location in submission",
+      "Parent/guardian consent form (required under 18)"
+    ]
+  },
+  {
+    "id": 1025,
+    "domain": "castings",
+    "name": "Hawaii Teen Drama Series",
+    "org": "Alessi Hartigan Casting",
+    "category": "Кастинги",
+    "baseCountry": "USA",
+    "country": "USA (Hawaii)",
+    "age": "16–25 (playing high school 15–18)",
+    "minAge": 16,
+    "deadline": "30 июня 2026",
+    "dates": "Filming July 20 – mid-September 2026, Hawaii",
+    "pay": "Paid opportunity (Hawaii local production)",
+    "support": [
+      "Оплата"
+    ],
+    "summary": "Teen drama series в Гавайях — ищут authentic local teens 16–25, опыт не обязателен. Paid, writers include Bryson Chun.",
+    "desc": "Тип: TV series · USA (Hawaii) · Актёрство: ensemble/principal · Оплата: да · Контакт: tinyurl.com/HawaiiTeenDrama",
+    "url": "https://4filming.com/hawaii-teen-drama-casting-call-2026-alessi-hartigan/",
+    "closed": false,
+    "urgent": false,
+    "check": null,
+    "documents": [
+      "Online application via tinyurl.com/HawaiiTeenDrama",
+      "Short video introduction (personality-focused)",
+      "Basic info: name, age, location in Hawaii",
+      "Parental consent if under 18",
+      "Optional: prior acting clips (not required)"
+    ]
+  },
+  {
+    "id": 1026,
+    "domain": "castings",
+    "name": "Disney Television Talent Search 2026",
+    "org": "Rise Talent Management / Disney-branded TV",
+    "category": "Кастинги",
+    "baseCountry": "USA",
+    "country": "USA",
+    "age": "9–17 лет",
+    "minAge": 9,
+    "deadline": "Rolling (без публичного дедлайна)",
+    "dates": "Ongoing talent search 2026",
+    "pay": "Future Disney Channel / Disney+ consideration (не гарантированная роль)",
+    "support": [
+      "Оплата"
+    ],
+    "summary": "Открытый talent search Disney-branded TV для детей и подростков 9–17: acting, singing, dance, musicians.",
+    "desc": "Тип: talent search · USA · Актёрство: talent_search · Оплата: при cast · Контакт: Project Casting",
+    "url": "https://projectcasting.com/job/disney-television-talent-search-2026-open-casting-call",
+    "closed": false,
+    "urgent": false,
+    "check": null,
+    "documents": [
+      "Application via Project Casting portal",
+      "Headshot + full-body photo",
+      "Performance clip (acting / song / dance optional)",
+      "Parent/guardian must manage submission and scheduling",
+      "Resume listing special skills (music, DJ, etc.)"
+    ]
+  },
+  {
+    "id": 1027,
+    "domain": "castings",
+    "name": "Ar Ais Arís — TG4 Youth Drama",
+    "org": "Tailored Films · Beactive · Éiru Films · TG4",
+    "category": "Кастинги",
+    "baseCountry": "Ирландия",
+    "country": "Ireland (Galway / Mayo)",
+    "age": "Teen (native Irish speaker)",
+    "minAge": 14,
+    "deadline": "Rolling (съёмки конец июня – август 2026)",
+    "dates": "Filming late June – early August 2026, Galway",
+    "pay": "Paid TV production (rate on selection)",
+    "support": [
+      "Оплата"
+    ],
+    "summary": "TG4 youth drama Ar Ais Arís — кастинг irish-speaking teens из Galway/Mayo/Connacht. Одна роль: Portuguese + Irish.",
+    "desc": "Тип: TV series · Ireland (Galway) · Актёрство: featured · Оплата: да · Контакт: laura@maureenhughescasting.com",
+    "url": "https://thisisgalway.ie/galway-teens-sought-for-ambitious-new-tg4-youth-drama/",
+    "closed": false,
+    "urgent": false,
+    "check": null,
+    "documents": [
+      "Self-tape video introduction as Gaeilge (name, age, location, experience)",
+      "Email submission to laura@maureenhughescasting.com",
+      "Submission must be sent by parent/guardian",
+      "Recent headshot attached to email",
+      "Parental consent for filming schedule"
+    ]
+  },
+  {
+    "id": 1028,
+    "domain": "castings",
+    "name": "Cast Istanbul — Lise Öğrencisi Oyuncu Kaydı",
+    "org": "Cast Ajans Istanbul",
+    "category": "Кастинги",
+    "baseCountry": "Турция",
+    "country": "Turkey (Istanbul / nationwide online)",
+    "age": "14–18 лет (lise)",
+    "minAge": 14,
+    "deadline": "Rolling (agency pool)",
+    "dates": "Ongoing agency matching",
+    "pay": "Paid projects when cast (kaşe по проекту; kayıt ücretsiz)",
+    "support": [
+      "Оплата"
+    ],
+    "summary": "Регистрация lise öğrencisi (14–18) в Cast Istanbul для dizi, film, reklam. Ücretsiz başvuru, veli onayı обязателен.",
+    "desc": "Тип: agency pool · Turkey · Актёрство: agency_pool · Оплата: при cast · Контакт: castistanbul.com online form",
+    "url": "https://www.castistanbul.com/blog/lise-ogrencisi-oyuncu-kaydi",
+    "closed": false,
+    "urgent": false,
+    "check": null,
+    "documents": [
+      "Online başvuru formu on castistanbul.com/tags/dizi-basvurusu",
+      "Güncel doğal ışık fotoğrafları (makyajsız tercih)",
+      "Kısa biyografi + varsa deneyim",
+      "Veli onay belgesi (18 yaş altı zorunlu)",
+      "Optional: kısa audition / tanıtım videosu"
+    ]
+  },
+  {
+    "id": 1029,
+    "domain": "castings",
+    "name": "V Ajans — Genç Oyuncu Başvurusu",
+    "org": "V Ajans (Istanbul)",
+    "category": "Кастинги",
+    "baseCountry": "Турция",
+    "country": "Turkey (nationwide)",
+    "age": "14–18+ (18 altı veli onayı)",
+    "minAge": 14,
+    "deadline": "Rolling (agency pool)",
+    "dates": "Ongoing",
+    "pay": "Paid dizi/film/reklam when cast; başvuru tamamen ücretsiz",
+    "support": [
+      "Оплата"
+    ],
+    "summary": "Ücretsiz online oyuncu kaydı V Ajans — Türkiye geneli genç talent havuzu. 18 yaş altı aile onayı zorunlu.",
+    "desc": "Тип: agency pool · Turkey · Актёрство: agency_pool · Оплата: при cast · Контакт: info@vajans.com.tr",
+    "url": "https://www.vajans.com.tr/sayfa/bilinmesi-gerekenler.html",
+    "closed": false,
+    "urgent": false,
+    "check": null,
+    "documents": [
+      "V Ajans online başvuru formu + fotoğraf (max 2 Mb JPEG)",
+      "Veli onay belgesi (18 yaş altı)",
+      "Telefon / email iletişim bilgileri",
+      "Optional: kısa video / önceki deneyim özeti"
+    ]
+  },
+  {
+    "id": 1030,
+    "domain": "castings",
+    "name": "Suncoast Broadway — Youth Season Auditions",
+    "org": "Suncoast Broadway Dinner Theatre",
+    "category": "Кастинги",
+    "baseCountry": "USA",
+    "country": "USA (Hudson, FL)",
+    "age": "6–13 (youth roles); audition 18 July 2026",
+    "minAge": 6,
+    "deadline": "18 июля 2026 (live audition)",
+    "dates": "Audition July 18, 2026; season Nov 2026 – May 2027",
+    "pay": "$150/week (NON-UNION youth season)",
+    "support": [
+      "Оплата"
+    ],
+    "summary": "Musical theater youth auditions: Christmas Carol, Les Mis youth tracks, Young Elvis. Hudson FL, in-person July 18.",
+    "desc": "Тип: theater · USA (Hudson, FL) · Актёрство: featured · Оплата: да · Контакт: youthinpersonauditions2026-27season.cheddarup.com",
+    "url": "https://playbill.com/job/suncoast-broadway-local-auditions-for-youth-actors/0e5a42b1-1587-445b-8ab8-8831a1b44a32",
+    "closed": false,
+    "urgent": false,
+    "check": null,
+    "documents": [
+      "Sign up via cheddarup.com audition link",
+      "Headshot + résumé",
+      "16–32 bars musical theatre song + sheet music in key",
+      "List of scheduling conflicts for season",
+      "Comfortable dance clothes for dance call",
+      "Parental consent; school absence expected for matinees"
+    ]
+  },
+  {
+    "id": 1031,
+    "domain": "castings",
+    "name": "ITV Drama — Jake (Partially Deaf Teen)",
+    "org": "Andy Pryor Casting",
+    "category": "Кастинги",
+    "baseCountry": "UK",
+    "country": "UK (London / South East)",
+    "age": "15–16 playing; 16–18 if convincingly younger",
+    "minAge": 16,
+    "deadline": "5 июля 2026",
+    "dates": "TBC production schedule",
+    "pay": "Paid featured role (ITV drama)",
+    "support": [
+      "Оплата"
+    ],
+    "summary": "Featured teen Jake — partially deaf/hard of hearing, learning BSL. Genuine lived experience required. Paid ITV role.",
+    "desc": "Тип: TV drama · UK · Актёрство: featured · Оплата: да · Контакт: Andy Pryor Casting / Project Casting",
+    "url": "https://projectcasting.com/job/itv-drama-casting-call-for-partially-deaf-hard-of-hearing-actors",
+    "closed": false,
+    "urgent": false,
+    "check": null,
+    "documents": [
+      "Application via Project Casting portal",
+      "Self-tape with London/South East accent",
+      "Statement of hearing status (partially deaf/HoH)",
+      "Optional: BSL experience documentation",
+      "Parental consent if under 18",
+      "Headshot + acting CV"
+    ]
+  },
+  {
+    "id": 1032,
+    "domain": "castings",
+    "name": "Backstage — Teen Acting (Platform Monitor)",
+    "org": "Backstage",
+    "category": "Кастинги",
+    "baseCountry": "USA",
+    "country": "USA / UK / Canada / France / Australia",
+    "age": "13–20 (filter teens)",
+    "minAge": 13,
+    "deadline": "Ежедневный мониторинг",
+    "dates": "Rolling listings",
+    "pay": "Varies by listing (paid/non-paid)",
+    "support": [
+      "Оплата"
+    ],
+    "summary": "Платформа Backstage — фильтр Teens 13–20 для film/TV/commercial в USA, UK, Canada, France, Australia.",
+    "desc": "Тип: platform · Multi-region · Актёрство: talent_search · Оплата: по listing · Контакт: backstage.com",
+    "url": "https://www.backstage.com/casting/open-casting-calls/teens-acting-jobs/",
+    "closed": false,
+    "urgent": false,
+    "check": null,
+    "documents": [
+      "Backstage talent profile (subscription may apply)",
+      "Headshot + acting resume on profile",
+      "Self-tape setup per casting notice",
+      "Filter: Teens 13–20 + target country",
+      "Parental consent for performers under 18"
+    ]
+  },
+  {
+    "id": 1033,
+    "domain": "castings",
+    "name": "Playbill — Theater Castings (Platform Monitor)",
+    "org": "Playbill",
+    "category": "Кастинги",
+    "baseCountry": "USA",
+    "country": "USA (regional theater)",
+    "age": "Teen/youth theater roles",
+    "minAge": 13,
+    "deadline": "Еженедельный мониторинг",
+    "dates": "Rolling theater postings",
+    "pay": "Varies (stipend to weekly pay)",
+    "support": [
+      "Оплата"
+    ],
+    "summary": "Playbill Jobs — regional & youth theater auditions USA: musical theater, teen ensemble, summer stock.",
+    "desc": "Тип: platform · USA · Актёрство: talent_search · Оплата: по posting · Контакт: playbill.com/jobs",
+    "url": "https://playbill.com/jobs",
+    "closed": false,
+    "urgent": false,
+    "check": null,
+    "documents": [
+      "Playbill job listing application (email/online/Airtable per posting)",
+      "Headshot + résumé",
+      "16–32 bar song + sheet music for musicals",
+      "1-minute monologue where requested",
+      "Conflict list for rehearsal/performance dates"
+    ]
+  },
+  {
+    "id": 1034,
+    "domain": "castings",
+    "name": "Teatr Ochoty — Młodzi Open Call",
+    "org": "Teatr Ochoty, Warsaw",
+    "category": "Кастинги",
+    "baseCountry": "Польша",
+    "country": "Poland (Warsaw)",
+    "age": "13–19 лет",
+    "minAge": 13,
+    "deadline": "Закрыт (истёк 10 июня 2026)",
+    "dates": "Premiere 30 August 2026, Park Szczęśliwicki",
+    "pay": "Bezpłatny udział (outdoor performance project)",
+    "support": [
+      "Обучение"
+    ],
+    "summary": "Open call «Młodzi» — plenerowy spektakl Teatr Ochoty, 13–19 lat. Набор закрыт 10 июня.",
+    "desc": "Тип: outdoor theater · Poland (Warsaw) · Актёрство: ensemble · Оплата: нет · Статус: закрыт",
+    "url": "https://teatrochoty.pl/wydarzenie/open-call-mlodzi/",
+    "closed": true,
+    "urgent": false,
+    "check": null,
+    "documents": [
+      "Google Forms zgłoszeniowy (closed)",
+      "Openness to movement workshops Aug 17–29",
+      "Parental consent for minors"
+    ]
+  },
+  {
+    "id": 1035,
+    "domain": "castings",
+    "name": "BeCasting AR — Short Film Teens 15–19",
+    "org": "BeCasting Argentina",
+    "category": "Кастинги",
+    "baseCountry": "Аргентина",
+    "country": "Argentina (Buenos Aires)",
+    "age": "15–19 лет",
+    "minAge": 15,
+    "deadline": "Закрыт (истёк 12 мая 2026)",
+    "dates": "2 shoot days, Buenos Aires",
+    "pay": "Remuneración prevista",
+    "support": [
+      "Оплата"
+    ],
+    "summary": "Cortometraje para redes — teens 15–19, Buenos Aires. Закрыт.",
+    "desc": "Тип: short film · Argentina (Buenos Aires) · Актёрство: featured · Оплата: да · Статус: закрыт",
+    "url": "https://www.becasting.com.ar/castings/cine-ficcion/214966-casting-chicos-entre-15-y-19-anos-para-cortometraje-destinado-a-redes",
+    "closed": true,
+    "urgent": false,
+    "check": null,
+    "documents": [
+      "Email to casting recruiter with photos + videobook link",
+      "Personal data: name, age, phone",
+      "Availability for 2 shoot days"
+    ]
+  },
+  {
+    "id": 1036,
+    "domain": "castings",
+    "name": "The Laramie Project — Youth Ensemble",
+    "org": "YoubeYou · Ngamotu Theatre for Youth",
+    "category": "Кастинги",
+    "baseCountry": "New Zealand",
+    "country": "New Zealand (New Plymouth)",
+    "age": "15–21 лет",
+    "minAge": 15,
+    "deadline": "13 июня 2026 (live audition)",
+    "dates": "Auditions 13 June 2026; performances 10–19 September 2026 at Little Theatre",
+    "pay": "Community theater production (non-paid ensemble; professional rehearsal process)",
+    "support": [
+      "Обучение"
+    ],
+    "summary": "Ensemble-кastинг The Laramie Project для youth 15–21 в New Plymouth, NZ. Аудиции 13 июня через Cast98.",
+    "desc": "Тип: theater · New Zealand (New Plymouth) · Актёрство: ensemble · Оплата: нет · Контакт: youbeyoungamotu@gmail.com / Cast98",
+    "url": "https://app.cast98.com/shows/the-laramie-project-2026-youbeyoungamotu",
+    "closed": false,
+    "urgent": true,
+    "check": null,
+    "documents": [
+      "Free Cast98 account + audition signup on app.cast98.com",
+      "Conflict calendar for rehearsal period",
+      "Profile information + show-specific questions in Cast98 form",
+      "Contact Gordy Lockhart (youbeyoungamotu@gmail.com) for questions",
+      "Parent/guardian consent for performers under 18"
+    ]
+  },
+  {
+    "id": 1037,
+    "domain": "castings",
+    "name": "StarNow — Teen Acting (Australia)",
+    "org": "StarNow",
+    "category": "Кастинги",
+    "baseCountry": "Австралия",
+    "country": "Australia (Sydney / Melbourne / national)",
+    "age": "Teens / young adult filter",
+    "minAge": 13,
+    "deadline": "Ежедневный мониторинг",
+    "dates": "Rolling listings",
+    "pay": "Varies by listing (AU$ typical for film/TV/commercial)",
+    "support": [
+      "Оплата"
+    ],
+    "summary": "StarNow Australia — фильтр teen/young adult для film, TV, commercial в Sydney, Melbourne и nationally.",
+    "desc": "Тип: platform · Australia · Актёрство: talent_search · Оплата: по listing · Контакт: starnow.com",
+    "url": "https://www.starnow.com/casting/open-casting-calls/australia-acting-jobs/",
+    "closed": false,
+    "urgent": false,
+    "check": null,
+    "documents": [
+      "StarNow talent profile (free signup)",
+      "Headshot + showreel on profile",
+      "Self-tape per casting notice",
+      "Filter: Teens / Young Adult + Australia",
+      "Parental consent for performers under 18"
+    ]
+  },
+  {
+    "id": 1038,
+    "domain": "castings",
+    "name": "Backstage — Teens (Canada)",
+    "org": "Backstage",
+    "category": "Кастинги",
+    "baseCountry": "Canada",
+    "country": "Canada (Toronto / Vancouver)",
+    "age": "13–20 (teens filter)",
+    "minAge": 13,
+    "deadline": "Ежедневный мониторинг",
+    "dates": "Rolling — Toronto & Vancouver teen listings",
+    "pay": "Varies (CA$ per day typical for indie/feature)",
+    "support": [
+      "Оплата"
+    ],
+    "summary": "Backstage Canada teens — Toronto и Vancouver film/TV/student projects для 13–20.",
+    "desc": "Тип: platform · Canada · Актёрство: talent_search · Оплата: по listing · Контакт: backstage.com",
+    "url": "https://www.backstage.com/casting/open-casting-calls/toronto-canada-teens/",
+    "closed": false,
+    "urgent": false,
+    "check": null,
+    "documents": [
+      "Backstage talent profile",
+      "Headshot + acting resume",
+      "Self-tape per project brief",
+      "Monitor Toronto + Vancouver teens pages separately",
+      "Work permit / visa status note for non-residents"
+    ]
+  },
+  {
+    "id": 1039,
+    "domain": "castings",
+    "name": "Onlinecasting.co.za — Platform Monitor",
+    "org": "Onlinecasting South Africa",
+    "category": "Кастинги",
+    "baseCountry": "ЮАР",
+    "country": "South Africa (national)",
+    "age": "16–19+ (filter on site after login)",
+    "minAge": 16,
+    "deadline": "Еженедельный мониторинг",
+    "dates": "Rolling auditions — Cape Town, Gauteng, national",
+    "pay": "PAID listings common (rates on audition page)",
+    "support": [
+      "Оплата"
+    ],
+    "summary": "Главная платформа кастингов ЮАР — film/TV/extras; фильтр по возрасту после регистрации.",
+    "desc": "Тип: platform · South Africa · Актёрство: talent_search · Оплата: часто да · Контакт: onlinecasting.co.za",
+    "url": "https://www.onlinecasting.co.za/auditions.asp",
+    "closed": false,
+    "urgent": false,
+    "check": null,
+    "documents": [
+      "Free Onlinecasting.co.za talent profile",
+      "Headshots + physical stats on profile",
+      "Apply to matching auditions from dashboard",
+      "Parent/guardian consent for minors",
+      "Verify PAID vs scam listings (site has scam alert page)"
+    ]
+  },
+  {
+    "id": 1040,
+    "domain": "castings",
+    "name": "Danish Feature — Boys 15–18 (Jylland)",
+    "org": "Tommy Duus · Dansk Skuespillerkatalog",
+    "category": "Кастинги",
+    "baseCountry": "Германия",
+    "country": "Denmark (Jylland shoot)",
+    "age": "15–18 лет (male)",
+    "minAge": 15,
+    "deadline": "Rolling (съёмки maj/juni 2026)",
+    "dates": "Shoot May/June 2026 in Jylland, Denmark",
+    "pay": "Paid feature film roles (rate via dask-online profile application)",
+    "support": [
+      "Оплата"
+    ],
+    "summary": "Stor dansk spillefilm — два больших teen male roles, 15–18, съёмки в Jylland. Опыт не обязателен.",
+    "desc": "Тип: feature film · Denmark (Jylland) · Актёрство: lead · Оплата: да · Контакт: dask-online.dk profile",
+    "url": "https://www.dask-online.dk/nyhed.asp?id=1039658",
+    "closed": false,
+    "urgent": false,
+    "check": null,
+    "documents": [
+      "Create/login at dask-online.dk (Dansk Skuespillerkatalog)",
+      "Apply to casting post id 1039658 from profile",
+      "Headshot + CV on Danish actor profile",
+      "Video presentation if requested by caster",
+      "Parental consent + work rules for minors in Denmark"
+    ]
+  },
+  {
+    "id": 1041,
+    "domain": "castings",
+    "name": "CastingOnline.co.il — Platform Monitor",
+    "org": "CastingOnline Israel",
+    "category": "Кастинги",
+    "baseCountry": "Израиль",
+    "country": "Israel (national)",
+    "age": "0–25 (фильтр 17–25 на сайте)",
+    "minAge": 16,
+    "deadline": "Ежедневный мониторинг",
+    "dates": "Rolling — 12 600+ artists, 277+ casters in database",
+    "pay": "По listing (TV, film, theater, fashion — после регистрации профиля)",
+    "support": [
+      "Оплата"
+    ],
+    "summary": "Главная израильская платформа лияук — кино, ТВ, театр; публичный каталог без логина часто пуст, listings видны после регистрации.",
+    "desc": "Тип: platform · Israel (national) · Актёрство: talent_search · Оплата: по проекту · Контакт: castingonline.co.il",
+    "url": "https://www.castingonline.co.il/",
+    "closed": false,
+    "urgent": false,
+    "check": "Публичные страницы категорий часто «нет результатов» — нужен аккаунт",
+    "documents": [
+      "Free CastingOnline.co.il artist profile (VIP tier for applications)",
+      "Headshots + showreel on profile",
+      "Filter: TV/Radio, Theater, Film — age 17–25",
+      "Self-tape / video audition per casting notice",
+      "Parent/guardian consent for performers under 18"
+    ]
+  },
+  {
+    "id": 1042,
+    "domain": "castings",
+    "name": "GoSee — Youth Talent Agency",
+    "org": "Go See Young Talent Management",
+    "category": "Кастинги",
+    "baseCountry": "Израиль",
+    "country": "Israel (Tel Aviv / nationwide)",
+    "age": "1–18 (נוער 15–18 для acting)",
+    "minAge": 15,
+    "deadline": "Rolling (agency pool)",
+    "dates": "Rolling registration — ответ на заявку ~7 рабочих дней",
+    "pay": "Paid TV, film, commercials, catalogs when cast (agency sends matching auditions)",
+    "support": [
+      "Оплата"
+    ],
+    "summary": "С leading IL agency для детей/подростков — TV, кино, реклама; teens 15–18 для acting roles после проверки соответствия.",
+    "desc": "Тип: agency_pool · Israel · Актёрство: talent_search · Оплата: да · Контакт: gosee.co.il compatibility form",
+    "url": "https://gosee.co.il/",
+    "closed": false,
+    "urgent": false,
+    "check": null,
+    "documents": [
+      "GoSee compatibility questionnaire (parent + child details)",
+      "3 quality headshots for initial review",
+      "Free-text acting/dance/singing background (required for 7+)",
+      "Wait for approval email (~7 business days)",
+      "Full child profile on GoSee portal after acceptance",
+      "Parent/guardian on all auditions (minors law)"
+    ]
+  },
+  {
+    "id": 1043,
+    "domain": "castings",
+    "name": "Easy2Cast — Platform Monitor (Israel)",
+    "org": "Easy2Cast",
+    "category": "Кастинги",
+    "baseCountry": "Израиль",
+    "country": "Israel + international casters",
+    "age": "Teens via profile filters",
+    "minAge": 16,
+    "deadline": "Ежедневный мониторинг",
+    "dates": "Rolling — free artist account",
+    "pay": "Varies — casting invitations by email after profile match",
+    "support": [
+      "Оплата"
+    ],
+    "summary": "Израильский talent database — casting directors фильтруют по typecast; self-tape на email при match.",
+    "desc": "Тип: platform · Israel · Актёрство: talent_search · Оплата: по проекту · Контакт: easy2cast.com",
+    "url": "https://easy2cast.com/",
+    "closed": false,
+    "urgent": false,
+    "check": null,
+    "documents": [
+      "Free Easy2Cast account + complete artist profile",
+      "Headshots + physical stats + skills tags",
+      "Showreel / self-tape samples on profile",
+      "Respond to casting email invitations with filmed audition",
+      "Parental consent for minors"
+    ]
+  },
+  {
+    "id": 1044,
+    "domain": "castings",
+    "name": "Di-Cast-Ro (HaMalehak) — Casting Database",
+    "org": "Yosef Di Castro · HaMalehak",
+    "category": "Кастинги",
+    "baseCountry": "Израиль",
+    "country": "Israel (national)",
+    "age": "16+ (ביטים/ניצבים без 3 лет обучения)",
+    "minAge": 16,
+    "deadline": "Rolling (agency pool)",
+    "dates": "Rolling — registration at di-cast-ro.com/submit",
+    "pay": "Paid extras/bits/TV/film when selected from 10 000+ talent pool",
+    "support": [
+      "Оплата"
+    ],
+    "summary": "Крупнейший IL casting database — для teens без 3 лет acting school: категории ביטים (bits) и ניצבים (extras).",
+    "desc": "Тип: agency_pool · Israel · Актёрство: ensemble · Оплата: да · Контакт: di-cast-ro.com/submit",
+    "url": "https://www.di-cast-ro.com/submit",
+    "closed": false,
+    "urgent": false,
+    "check": null,
+    "documents": [
+      "Online registration form at di-cast-ro.com/submit",
+      "Select roles: ביטים (bits) or ניצבים (extras) — not full actor track without training",
+      "Representative body + face photos (2)",
+      "Social links (Instagram/Facebook) with follower counts",
+      "Self-tape when casting invitation arrives",
+      "Parent/guardian consent for minors"
+    ]
+  },
+  {
+    "id": 1045,
+    "domain": "castings",
+    "name": "Take2 — Children & Teens Casting",
+    "org": "Take2 Casting Agency",
+    "category": "Кастинги",
+    "baseCountry": "Израиль",
+    "country": "Israel (national)",
+    "age": "Children & teens (мlicense משרד התעשייה)",
+    "minAge": 14,
+    "deadline": "Rolling (agency pool)",
+    "dates": "Rolling — hundreds of youth in agency roster",
+    "pay": "Paid film/TV/commercial roles for represented youth",
+    "support": [
+      "Оплата"
+    ],
+    "summary": "Take2 — лицензированное IL agency для детей/подростков в кино, ТВ и рекламе; audition studio on-site.",
+    "desc": "Тип: agency_pool · Israel · Актёрство: featured · Оплата: да · Контакт: take2.co.il",
+    "url": "https://take2.co.il/index.php?cs=7&dir=site&langpage=heb&page=content",
+    "closed": false,
+    "urgent": false,
+    "check": null,
+    "documents": [
+      "Contact Take2 for youth representation intake",
+      "Professional headshots + child CV/resume",
+      "Parent/guardian required at all auditions (Israel minors law)",
+      "Audition prep: memorized scene + dance/singing if requested",
+      "Verify agency license (משרד התעשייה והמסחר) before signing"
+    ]
+  },
+  {
+    "id": 2001,
+    "domain": "volunteering",
+    "name": "Workaway — Horse Sanctuary, Vogesen, France",
+    "org": "The Herd of Mearas (Workaway host)",
+    "category": "35+",
+    "baseCountry": "Франция",
+    "country": "France (Bourbonne-les-Bains)",
+    "age": "18+ (опыт приветствуется)",
+    "minAge": 18,
+    "deadline": "Открыт (Rolling)",
+    "dates": "Круглый год (утро 7:00–12:30, гибкий график)",
+    "pay": "Бесплатно. Проживание и питание в обмен на работу (4–5 ч/день)",
+    "support": [
+      "Жильё",
+      "Питание",
+      "Обучение"
+    ],
+    "summary": "Волонтёрство на конном и животном санктуарии во Франции: уход за лошадьми, кроликами и курами. Без верховой езды — только уход и выпас.",
+    "desc": "Доступно: виза Шенген (биометрический паспорт UA) · Язык: английский / французский · Возраст: 18+ · Минимум 3 недели · Подача: через Workaway",
+    "url": "https://www.workaway.info/en/host/152799768722",
+    "closed": false,
+    "urgent": false,
+    "check": null,
+    "documents": [
+      "Workaway profile and membership",
+      "Message to host describing experience and dates",
+      "Travel insurance certificate",
+      "CV or short introduction"
+    ],
+    "audience": "adult"
+  },
+  {
+    "id": 2002,
+    "domain": "volunteering",
+    "name": "Workaway — Horse Rescue Sanctuary, Murcia, Spain",
+    "org": "Fundación santuario (Workaway host)",
+    "category": "35+",
+    "baseCountry": "Испания",
+    "country": "Spain (Murcia)",
+    "age": "18+ (предпочтение 25+)",
+    "minAge": 18,
+    "deadline": "Открыт (Rolling)",
+    "dates": "Круглый год (обычно 1–12 месяцев)",
+    "pay": "Бесплатно. Караван или комната, питание; минимум 1 месяц",
+    "support": [
+      "Жильё",
+      "Питание",
+      "Обучение"
+    ],
+    "summary": "Волонтёрство на экологическом ранчо-убежище для лошадей, пони и ослов в Мурсии. Уход, выпас, биостроительство и пермакультура.",
+    "desc": "Доступно: виза Шенген · Язык: английский / испанский · Возраст: 18+ · Минимум 1 месяц · Подача: через Workaway",
+    "url": "https://www.workaway.info/en/host/787884194666",
+    "closed": false,
+    "urgent": false,
+    "check": null,
+    "documents": [
+      "Workaway profile",
+      "Cover message with horse or bioconstruction experience",
+      "Proof of travel insurance"
+    ],
+    "audience": "adult"
+  },
+  {
+    "id": 2003,
+    "domain": "volunteering",
+    "name": "Workaway — Horse Sanctuary Modlimowo, Poland",
+    "org": "Fundacja Modlimowo (Workaway host)",
+    "category": "35+",
+    "baseCountry": "Польша",
+    "country": "Poland (West Pomerania)",
+    "age": "18+",
+    "minAge": 18,
+    "deadline": "Открыт (кроме зимы)",
+    "dates": "Весна–осень (не зимние месяцы)",
+    "pay": "Бесплатно. Проживание и питание в обмен на работу",
+    "support": [
+      "Жильё",
+      "Питание",
+      "Обучение"
+    ],
+    "summary": "Волонтёрство на конном санктуарии в сельской Польше: уход за лошадьми, лёгкое строительство, сад. Рядом Балтийское море.",
+    "desc": "Доступно: безвиз Шенген (UA биометрический паспорт) · Язык: английский / польский · Возраст: 18+ · Подача: через Workaway",
+    "url": "https://www.workaway.info/en/host/544857119854",
+    "closed": false,
+    "urgent": false,
+    "check": null,
+    "documents": [
+      "Workaway profile",
+      "Introduction message",
+      "Warm clothing and rain gear for farm work"
+    ],
+    "audience": "adult"
+  },
+  {
+    "id": 2004,
+    "domain": "volunteering",
+    "name": "UN Volunteers — Online & On-site Roles",
+    "org": "United Nations Volunteers (UNV)",
+    "category": "35+",
+    "baseCountry": "International",
+    "country": "Global (remote & on-site)",
+    "age": "18+ (профессиональные роли — опыт 35+)",
+    "minAge": 18,
+    "deadline": "Открыт (Rolling по вакансиям)",
+    "dates": "По вакансии (3–12 месяцев типично)",
+    "pay": "Стипендия / living allowance (зависит от миссии); онлайн-роли — без релокации",
+    "support": [
+      "Обучение"
+    ],
+    "summary": "Международное волонтёрство ООН: онлайн и очные миссии в гуманитарных, образовательных и культурных проектах. Для взрослых с профессиональным опытом.",
+    "desc": "Доступно: зависит от миссии · Язык: английский (часто + местный) · Возраст: 18+ · Подача: через uvp.unv.org",
+    "url": "https://www.unv.org/",
+    "closed": false,
+    "urgent": false,
+    "check": null,
+    "documents": [
+      "UNV account registration",
+      "CV / resume",
+      "Academic credentials (if required)",
+      "References from employers"
+    ],
+    "audience": "adult"
+  },
+  {
+    "id": 2005,
+    "domain": "volunteering",
+    "name": "ESC Humanitarian Aid Volunteering",
+    "org": "European Solidarity Corps — Humanitarian Aid",
+    "category": "35+",
+    "baseCountry": "EU",
+    "country": "EU / partner countries",
+    "age": "18–35 лет",
+    "minAge": 18,
+    "deadline": "Открыт (по проектам)",
+    "dates": "По проекту (обычно 1–12 месяцев)",
+    "pay": "Бесплатно. Полное финансирование ЕС: проживание, питание, проезд, страховка, карманные",
+    "support": [
+      "Жильё",
+      "Дорога",
+      "Питание",
+      "Обучение"
+    ],
+    "summary": "Гуманитарное волонтёрство ESC — единственная линия Corps, открытая до 35 лет. Поддержка в кризисных регионах и гуманитарных миссиях.",
+    "desc": "Доступно: гражданство/резидентство EU или partner country · Язык: английский · Возраст: 18–35 · Подача: European Youth Portal",
+    "url": "https://youth.europa.eu/solidarity_en",
+    "closed": false,
+    "urgent": false,
+    "check": null,
+    "documents": [
+      "European Youth Portal registration",
+      "ESC application for specific project",
+      "CV and motivation letter",
+      "Medical clearance if required"
+    ],
+    "audience": "both"
+  },
+  {
+    "id": 2006,
+    "domain": "volunteering",
+    "name": "ESC — Horse Therapy, Friuli Venezia Giulia, Italy",
+    "org": "Anche noi a Cavallo ETS",
+    "category": "ESC",
+    "baseCountry": "Италия",
+    "country": "Italy (Friuli Venezia Giulia)",
+    "age": "18–30 лет",
+    "minAge": 18,
+    "deadline": "28 марта 2026",
+    "dates": "09 февраля – 15 июня 2026 (23 недели)",
+    "pay": "Бесплатно. ESC: проживание, питание, карманные, проезд, страховка",
+    "support": [
+      "Жильё",
+      "Питание",
+      "Дорога",
+      "Обучение"
+    ],
+    "summary": "ESC-волонтёрство в центре конной реабилитации в Италии: терапия с лошадьми, работа с людьми с инвалидностью, мастерские.",
+    "desc": "Доступно: безвиз Шенген (UA) / ESC статус · Язык: английский, желателен итальянский · Возраст: 18–30 · Подача: youth.europa.eu",
+    "url": "https://youth.europa.eu/solidarity/opportunity/49827_en",
+    "closed": false,
+    "urgent": false,
+    "check": null,
+    "documents": [
+      "European Youth Portal profile",
+      "ESC application",
+      "CV in English",
+      "Motivation letter"
+    ],
+    "audience": "teen"
+  },
+  {
+    "id": 2007,
+    "domain": "volunteering",
+    "name": "HelpStay — Community Theatre Volunteer, UK",
+    "org": "Various UK community theatres (HelpStay)",
+    "category": "Социальные проекты",
+    "baseCountry": "UK",
+    "country": "UK (various)",
+    "age": "16+ (некоторые проекты 18+)",
+    "minAge": 16,
+    "deadline": "Открыт (Rolling)",
+    "dates": "По проекту (2 недели – 3 месяца)",
+    "pay": "Бесплатно. Проживание и питание в обмен на помощь в театральных проектах и фестивалях",
+    "support": [
+      "Жильё",
+      "Питание"
+    ],
+    "summary": "Волонтёрство в общинных театрах Великобритании: помощь на фестивалях, репетициях, технике сцены. Для подростков 16+ с интересом к театру.",
+    "desc": "Доступно: виза UK Standard Visitor · Язык: английский · Возраст: 16+ · Подача: helpstay.com",
+    "url": "https://helpstay.com/",
+    "closed": false,
+    "urgent": false,
+    "check": null,
+    "documents": [
+      "HelpStay account",
+      "Host application message",
+      "Theatre experience summary (if any)",
+      "Parental consent for under 18"
+    ],
+    "audience": "teen"
   }
 ]

@@ -53,6 +53,7 @@
   }
   .domain-switcher {
     display: flex;
+    flex-wrap: wrap;
     background: var(--fill);
     border-radius: 10px;
     padding: 3px;
@@ -60,17 +61,25 @@
     gap: 3px;
   }
   .domain-btn {
-    flex: 1;
+    flex: 1 1 calc(50% - 3px);
+    min-width: 0;
     border: none;
     background: transparent;
     color: var(--text2);
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
-    padding: 8px 10px;
+    padding: 8px 6px;
     border-radius: 8px;
     cursor: pointer;
     font-family: inherit;
     transition: background 0.15s, color 0.15s;
+  }
+  @media (min-width: 520px) {
+    .domain-btn {
+      flex: 1 1 0;
+      font-size: 13px;
+      padding: 8px 10px;
+    }
   }
   .domain-btn.active {
     background: var(--card);
@@ -535,10 +544,12 @@
 <body>
 
 <div class="header">
-  <h1 id="header-title">Конные программы</h1>
-  <p id="header-subtitle">Глобальная подборка · жильё, дорога, обучение, оплата</p>
+  <h1 id="header-title">Кастинги</h1>
+  <p id="header-subtitle">Платная реклама, кино, сериалы и театр</p>
   <div class="domain-switcher" id="domain-switcher">
-    <button type="button" class="domain-btn active" data-domain="equestrian" onclick="setDomain(this)">Конные программы</button>
+    <button type="button" class="domain-btn active" data-domain="castings" onclick="setDomain(this)">Кастинги</button>
+    <button type="button" class="domain-btn" data-domain="volunteering" onclick="setDomain(this)">Волонтёрство</button>
+    <button type="button" class="domain-btn" data-domain="equestrian" onclick="setDomain(this)">Конные</button>
     <button type="button" class="domain-btn" data-domain="acting" onclick="setDomain(this)">Актёрское мастерство</button>
   </div>
 </div>
@@ -565,11 +576,7 @@
   <div class="filter-label" style="margin-top:8px">Страна</div>
   <div class="filter-scroll" id="country-filter"></div>
   <div class="filter-label" style="margin-top:8px">Возраст</div>
-  <div class="filter-scroll" id="age-filter">
-    <button class="chip active" data-age="16" onclick="setAge(this)">16+</button>
-    <button class="chip" data-age="17" onclick="setAge(this)">17+</button>
-    <button class="chip" data-age="18" onclick="setAge(this)">18+</button>
-  </div>
+  <div class="filter-scroll" id="age-filter"></div>
 </div>
 
 <div class="new-panel" id="new-panel" hidden>
@@ -587,32 +594,63 @@
 
 <script>
 const DOMAINS = {
+  castings: {
+    id: "castings",
+    title: "Кастинги",
+    subtitle: "Платная реклама, кино, сериалы и театр",
+    categories: ["Кастинги"],
+    ageTiers: ["16", "17", "18"],
+    urgentCallout: "Кастинги: Josephine Baker (13 июня), SisterGirls Atlanta (28 июня), Love in the Wind — 26 июня (СРОЧНО). Fallow — до 2 июля. Нажми «Кастинги».",
+    tips: [
+      { title: "Портфолио актёра", text: "Headshot + full-body фото. Два контрастных монолога (dramatic + comedic), self-tape 1–2 мин. Театральное резюме с опытом и тренингом." },
+      { title: "Портфолио всадника", text: "Конное CV + riding reel 1–2 мин (три аллюра, прыжки, работа с лошадью). Headshot + full-body. Указывай special skill: horseback riding." },
+      { title: "Платформы кастингов", text: "Backstage.com · Mandy.com · StarNow · ProjectCasting.com · Casting Networks · KidsCasting.com · Playbill · Cast Istanbul / V Ajans (Турция)." },
+      { title: "Виза США", text: "Paid castings — local hire часто обязателен. Короткие съёмки — B1/B2 при наличии визы." }
+    ]
+  },
+  volunteering: {
+    id: "volunteering",
+    title: "Волонтёрство",
+    subtitle: "Проекты для подростков 16–18 и взрослых 35+",
+    categories: ["ESC", "Волонтёрский обмен", "Социальные проекты", "35+"],
+    ageTiers: ["16", "17", "18", "35"],
+    urgentCallout: "ESC: ART Summer Białowieża (срочный донабор). IntegrART Krakow — до сентября 2026. Проверяй European Youth Portal.",
+    tips: [
+      { title: "ESC (18–30)", text: "European Solidarity Corps — жильё, питание, карманные, страховка, проезд. Подача через youth.europa.eu / European Youth Portal." },
+      { title: "Волонтёрский обмен", text: "HelpStay, Workaway — обмен труда на проживание. Проверяй язык, визу и минимальный срок. Для 16+ — только с согласия родителей." },
+      { title: "35+ для взрослых", text: "Отдельный фильтр 35+ — программы для родителей и взрослых: конюшни, театральные фестивали, community projects, UN Volunteers." }
+    ]
+  },
   equestrian: {
     id: "equestrian",
-    title: "Конные программы",
-    subtitle: "Глобальная подборка · жильё, дорога, обучение, оплата",
-    categories: ["Стипендии", "Лагери", "Интенсивы", "Стажировки", "Обмен", "Кастинги"],
-    urgentCallout: "Кастинги: Love in the Wind — 26 июня (СРОЧНО). Fallow — до 2 июля. Netflix ES (Lupus) — мониторинг. USEA Rebecca Farm (23 июня). Нажми «Кастинги».",
+    title: "Конные",
+    subtitle: "Лагеря, стипендии, стажировки и обмен за рубежом",
+    categories: ["Стипендии", "Лагери", "Интенсивы", "Стажировки", "Обмен"],
+    ageTiers: ["16", "17", "18"],
+    urgentCallout: "USEA Youth Mentorship Rebecca Farm (23 июня), Camp Wicosuta (14 июня), BHS Caron Roberts (27 июня). Нажми «Срочно».",
     tips: [
-      { title: "Портфолио всадника", text: "Конное CV + riding reel 1–2 мин (три аллюра, прыжки, работа с лошадью). Headshot + full-body. Указывай special skill: horseback riding." },
-      { title: "Страхование", text: "Стандартные полисы не покрывают травмы с лошадьми. Нужен специальный полис с покрытием конного спорта и работы на конюшне (stable duties)." },
-      { title: "Платформы кастингов", text: "Backstage.com · Mandy.com · StarNow · ProjectCasting.com · Casting Networks · KidsCasting.com · Allcasting.com — фильтры: horse riding, equestrian, western, SPACT." },
-      { title: "Агентства (верховая езда)", text: "UK SPACT: Take 3 Agency (take3agency.com, +44 20 8088 2833). Конные кастинги: CS Equine Models. Вестерны и историческое кино — через SPACT-агентства и массовку с отметкой riding." }
+      { title: "Портфолио всадника", text: "Конное CV + riding reel 1–2 мин (три аллюра, прыжки, работа с лошадью). Headshot + full-body." },
+      { title: "Страхование", text: "Стандартные полисы не покрывают травмы с лошадьми. Нужен специальный полис с покрытием конного спорта и работы на конюшне." },
+      { title: "Стипендии и лагеря", text: "Фильтр «Стипендии» — полностью или частично финансируемые программы. «Лагери» — летние сессии и camp staff." }
     ]
   },
   acting: {
     id: "acting",
     title: "Актёрское мастерство",
-    subtitle: "Театр и актёрство за рубежом · интенсивы, стипендии, аудиции",
-    categories: ["Стипендии", "Интенсивы", "Стажировки", "Обмен", "Аудиции", "Кастинги в актёрском мастерстве"],
-    urgentCallout: "Кастинги: Josephine Baker (13 июня), A Bit of Heaven NJ (21 июня), SisterGirls Atlanta (28 июня), Hawaii Teen Drama (30 июня). Нажми «Кастинги в актёрском мастерстве».",
+    subtitle: "Курсы, интенсивы, стипендии и аудиции",
+    categories: ["Стипендии", "Интенсивы", "Стажировки", "Аудиции"],
+    ageTiers: ["16", "17", "18"],
+    urgentCallout: "Beit Zvi preparatory — старт 5 июля 2026. AICF Sharett — осенняя регистрация на audition.",
     tips: [
       { title: "Портфолио актёра", text: "Headshot + full-body фото. Два контрастных монолога (dramatic + comedic), self-tape 1–2 мин. Театральное резюме с опытом и тренингом." },
-      { title: "Кастинги", text: "Backstage.com (teens) · Mandy teen/young adult · Project Casting · KidsCasting teens · Playbill (theater) · Cast Istanbul / V Ajans (Турция). Фильтр 16+ на сайте." },
-      { title: "Виза США", text: "Короткий интенсив (2–4 нед) — обычно B1/B2 с действующей визой. Interlochen и длинные программы могут требовать F-1. Paid castings — local hire часто обязателен." }
+      { title: "Виза США", text: "Короткий интенсив (2–4 нед) — обычно B1/B2 с действующей визой. Interlochen и длинные программы могут требовать F-1." },
+      { title: "Израиль", text: "Beit Zvi, AICF Sharett — главный локальный путь при студенческой визе A/2." }
     ]
   }
 };
+
+const DOMAIN_ORDER = ["castings", "volunteering", "equestrian", "acting"];
+const LEGACY_DOMAIN_MAP = { equestrian: "equestrian", acting: "acting" };
 
 const ACTING_BASE_PROGRAMS = [
   {
@@ -868,7 +906,7 @@ const ACTING_BASE_PROGRAMS = [
     documents: ["Заполненная онлайн-заявка на портале Education Community", "Портфолио или видеозапись прослушивания (по требованиям конкретного направления)", "Школьный табель успеваемости (транскрипт)", "Рекомендательное письмо от преподавателя", "Заявка на финансовую помощь (Financial Aid Application)"],
     closed: true,
     url: "https://www.interlochen.org/summer-camp/admission/how-to-apply-to-arts-camp",
-    urgent: true, check: null
+    urgent: false, check: null
   },
   {
     id: 1018, domain: "acting", name: "Jaffa Theatre — Masa Internship",
@@ -1111,7 +1149,7 @@ const ACTING_BASE_PROGRAMS = [
     urgent: false, check: null, isNew: true
   },
   {
-    id: 1034, domain: "acting", name: "Teatr Ochoty — Młodzi Open Call",
+    id: 1034, domain: "castings", name: "Teatr Ochoty — Młodzi Open Call",
     org: "Teatr Ochoty, Warsaw",
     category: "Кастинги в актёрском мастерстве", baseCountry: "Польша", country: "Poland (Warsaw)",
     age: "13–19 лет", minAge: 13, deadline: "Закрыт (истёк 10 июня 2026)", tone: "neutral",
@@ -1123,10 +1161,10 @@ const ACTING_BASE_PROGRAMS = [
     documents: ["Google Forms zgłoszeniowy (closed)", "Openness to movement workshops Aug 17–29", "Parental consent for minors"],
     closed: true,
     url: "https://teatrochoty.pl/wydarzenie/open-call-mlodzi/",
-    urgent: false, check: null, isNew: true
+    urgent: false, check: null, isNew: false
   },
   {
-    id: 1035, domain: "acting", name: "BeCasting AR — Short Film Teens 15–19",
+    id: 1035, domain: "castings", name: "BeCasting AR — Short Film Teens 15–19",
     org: "BeCasting Argentina",
     category: "Кастинги в актёрском мастерстве", baseCountry: "Аргентина", country: "Argentina (Buenos Aires)",
     age: "15–19 лет", minAge: 15, deadline: "Закрыт (истёк 12 мая 2026)", tone: "neutral",
@@ -1138,10 +1176,10 @@ const ACTING_BASE_PROGRAMS = [
     documents: ["Email to casting recruiter with photos + videobook link", "Personal data: name, age, phone", "Availability for 2 shoot days"],
     closed: true,
     url: "https://www.becasting.com.ar/castings/cine-ficcion/214966-casting-chicos-entre-15-y-19-anos-para-cortometraje-destinado-a-redes",
-    urgent: false, check: null, isNew: true
+    urgent: false, check: null, isNew: false
   },
   {
-    id: 1036, domain: "acting", name: "The Laramie Project — Youth Ensemble",
+    id: 1036, domain: "castings", name: "The Laramie Project — Youth Ensemble",
     org: "YoubeYou · Ngamotu Theatre for Youth",
     category: "Кастинги в актёрском мастерстве", baseCountry: "New Zealand", country: "New Zealand (New Plymouth)",
     age: "15–21 лет", minAge: 15, deadline: "13 июня 2026 (live audition)", tone: "red",
@@ -1297,6 +1335,116 @@ const ACTING_BASE_PROGRAMS = [
 ];
 
 const ACTING_LATEST_FEED = [];
+
+const VOLUNTEERING_BASE_PROGRAMS = [
+  {
+    id: 2001, domain: "volunteering", name: "Workaway — Horse Sanctuary, Vogesen, France",
+    org: "The Herd of Mearas (Workaway host)",
+    category: "35+", baseCountry: "Франция", country: "France (Bourbonne-les-Bains)",
+    age: "18+ (опыт приветствуется)", minAge: 18, audience: "adult", deadline: "Открыт (Rolling)", tone: "green",
+    support: ["Жильё", "Питание", "Обучение"],
+    pay: "Бесплатно. Проживание и питание в обмен на работу (4–5 ч/день)",
+    dates: "Круглый год (утро 7:00–12:30, гибкий график)",
+    summary: "Волонтёрство на конном и животном санктуарии во Франции: уход за лошадьми, кроликами и курами. Без верховой езды — только уход и выпас.",
+    desc: "Доступно: виза Шенген (биометрический паспорт UA) · Язык: английский / французский · Возраст: 18+ · Минимум 3 недели · Подача: через Workaway",
+    documents: ["Workaway profile and membership", "Message to host describing experience and dates", "Travel insurance certificate", "CV or short introduction"],
+    closed: false,
+    url: "https://www.workaway.info/en/host/152799768722",
+    urgent: false, check: null, isNew: true
+  },
+  {
+    id: 2002, domain: "volunteering", name: "Workaway — Horse Rescue Sanctuary, Murcia, Spain",
+    org: "Fundación santuario (Workaway host)",
+    category: "35+", baseCountry: "Испания", country: "Spain (Murcia)",
+    age: "18+ (предпочтение 25+)", minAge: 18, audience: "adult", deadline: "Открыт (Rolling)", tone: "green",
+    support: ["Жильё", "Питание", "Обучение"],
+    pay: "Бесплатно. Караван или комната, питание; минимум 1 месяц",
+    dates: "Круглый год (обычно 1–12 месяцев)",
+    summary: "Волонтёрство на экологическом ранчо-убежище для лошадей, пони и ослов в Мурсии. Уход, выпас, биостроительство и пермакультура.",
+    desc: "Доступно: виза Шенген · Язык: английский / испанский · Возраст: 18+ · Минимум 1 месяц · Подача: через Workaway",
+    documents: ["Workaway profile", "Cover message with horse or bioconstruction experience", "Proof of travel insurance"],
+    closed: false,
+    url: "https://www.workaway.info/en/host/787884194666",
+    urgent: false, check: null, isNew: true
+  },
+  {
+    id: 2003, domain: "volunteering", name: "Workaway — Horse Sanctuary Modlimowo, Poland",
+    org: "Fundacja Modlimowo (Workaway host)",
+    category: "35+", baseCountry: "Польша", country: "Poland (West Pomerania)",
+    age: "18+", minAge: 18, audience: "adult", deadline: "Открыт (кроме зимы)", tone: "green",
+    support: ["Жильё", "Питание", "Обучение"],
+    pay: "Бесплатно. Проживание и питание в обмен на работу",
+    dates: "Весна–осень (не зимние месяцы)",
+    summary: "Волонтёрство на конном санктуарии в сельской Польше: уход за лошадьми, лёгкое строительство, сад. Рядом Балтийское море.",
+    desc: "Доступно: безвиз Шенген (UA биометрический паспорт) · Язык: английский / польский · Возраст: 18+ · Подача: через Workaway",
+    documents: ["Workaway profile", "Introduction message", "Warm clothing and rain gear for farm work"],
+    closed: false,
+    url: "https://www.workaway.info/en/host/544857119854",
+    urgent: false, check: null, isNew: true
+  },
+  {
+    id: 2004, domain: "volunteering", name: "UN Volunteers — Online & On-site Roles",
+    org: "United Nations Volunteers (UNV)",
+    category: "35+", baseCountry: "International", country: "Global (remote & on-site)",
+    age: "18+ (профессиональные роли — опыт 35+)", minAge: 18, audience: "adult", deadline: "Открыт (Rolling по вакансиям)", tone: "green",
+    support: ["Обучение"],
+    pay: "Стипендия / living allowance (зависит от миссии); онлайн-роли — без релокации",
+    dates: "По вакансии (3–12 месяцев типично)",
+    summary: "Международное волонтёрство ООН: онлайн и очные миссии в гуманитарных, образовательных и культурных проектах. Для взрослых с профессиональным опытом.",
+    desc: "Доступно: зависит от миссии · Язык: английский (часто + местный) · Возраст: 18+ · Подача: через uvp.unv.org",
+    documents: ["UNV account registration", "CV / resume", "Academic credentials (if required)", "References from employers"],
+    closed: false,
+    url: "https://www.unv.org/",
+    urgent: false, check: null, isNew: true
+  },
+  {
+    id: 2005, domain: "volunteering", name: "ESC Humanitarian Aid Volunteering",
+    org: "European Solidarity Corps — Humanitarian Aid",
+    category: "35+", baseCountry: "EU", country: "EU / partner countries",
+    age: "18–35 лет", minAge: 18, audience: "both", deadline: "Открыт (по проектам)", tone: "green",
+    support: ["Жильё", "Дорога", "Питание", "Обучение"],
+    pay: "Бесплатно. Полное финансирование ЕС: проживание, питание, проезд, страховка, карманные",
+    dates: "По проекту (обычно 1–12 месяцев)",
+    summary: "Гуманитарное волонтёрство ESC — единственная линия Corps, открытая до 35 лет. Поддержка в кризисных регионах и гуманитарных миссиях.",
+    desc: "Доступно: гражданство/резидентство EU или partner country · Язык: английский · Возраст: 18–35 · Подача: European Youth Portal",
+    documents: ["European Youth Portal registration", "ESC application for specific project", "CV and motivation letter", "Medical clearance if required"],
+    closed: false,
+    url: "https://youth.europa.eu/solidarity_en",
+    urgent: false, check: null, isNew: true
+  },
+  {
+    id: 2006, domain: "volunteering", name: "ESC — Horse Therapy, Friuli Venezia Giulia, Italy",
+    org: "Anche noi a Cavallo ETS",
+    category: "ESC", baseCountry: "Италия", country: "Italy (Friuli Venezia Giulia)",
+    age: "18–30 лет", minAge: 18, audience: "teen", deadline: "28 марта 2026", tone: "orange",
+    support: ["Жильё", "Питание", "Дорога", "Обучение"],
+    pay: "Бесплатно. ESC: проживание, питание, карманные, проезд, страховка",
+    dates: "09 февраля – 15 июня 2026 (23 недели)",
+    summary: "ESC-волонтёрство в центре конной реабилитации в Италии: терапия с лошадьми, работа с людьми с инвалидностью, мастерские.",
+    desc: "Доступно: безвиз Шенген (UA) / ESC статус · Язык: английский, желателен итальянский · Возраст: 18–30 · Подача: youth.europa.eu",
+    documents: ["European Youth Portal profile", "ESC application", "CV in English", "Motivation letter"],
+    closed: false,
+    url: "https://youth.europa.eu/solidarity/opportunity/49827_en",
+    urgent: false, check: null, isNew: true
+  },
+  {
+    id: 2007, domain: "volunteering", name: "HelpStay — Community Theatre Volunteer, UK",
+    org: "Various UK community theatres (HelpStay)",
+    category: "Социальные проекты", baseCountry: "UK", country: "UK (various)",
+    age: "16+ (некоторые проекты 18+)", minAge: 16, audience: "teen", deadline: "Открыт (Rolling)", tone: "green",
+    support: ["Жильё", "Питание"],
+    pay: "Бесплатно. Проживание и питание в обмен на помощь в театральных проектах и фестивалях",
+    dates: "По проекту (2 недели – 3 месяца)",
+    summary: "Волонтёрство в общинных театрах Великобритании: помощь на фестивалях, репетициях, технике сцены. Для подростков 16+ с интересом к театру.",
+    desc: "Доступно: виза UK Standard Visitor · Язык: английский · Возраст: 16+ · Подача: helpstay.com",
+    documents: ["HelpStay account", "Host application message", "Theatre experience summary (if any)", "Parental consent for under 18"],
+    closed: false,
+    url: "https://helpstay.com/",
+    urgent: false, check: null, isNew: true
+  }
+];
+
+const VOLUNTEERING_FEED = [];
 
 const BASE_PROGRAMS = [
   {
@@ -1605,7 +1753,7 @@ const BASE_PROGRAMS = [
     documents: ["Clonshire Camp Booking Form", "Rider Profile & Experience Level Questionnaire", "Medical Consent & Liability Release Form", "Deposit Payment Confirmation"],
     closed: false,
     url: "https://www.clonshire.com/summer-in-horse-haven.html",
-    urgent: true, check: null
+    urgent: false, check: null
   },
   {
     id: 23, name: "English + Equestrian Camp — AirLinguée",
@@ -1930,7 +2078,7 @@ const BASE_PROGRAMS = [
     urgent: true, check: null, isNew: true
   },
   {
-    id: 46, name: "Fallow — Lead Actress (Romi)",
+    id: 46, domain: "castings", name: "Fallow — Lead Actress (Romi)",
     org: "Marott Productions",
     category: "Кастинги", baseCountry: "UK", country: "UK",
     age: "18–25 (playing age)", minAge: 18, deadline: "2 июля 2026 (rolling)", tone: "green",
@@ -1945,7 +2093,7 @@ const BASE_PROGRAMS = [
     documents: ["Application via Project Casting portal", "Acting CV / Portfolio", "Headshots / photos", "Video introduction / monologue link", "Proof of horseback riding skills"]
   },
   {
-    id: 47, name: "Love in the Wind — Luke (Lead Cowboy)",
+    id: 47, domain: "castings", name: "Love in the Wind — Luke (Lead Cowboy)",
     org: "Moviehead Pictures · Tri Nguyen, casting dir.",
     category: "Кастинги", baseCountry: "USA", country: "USA (CA / TX)",
     age: "18–30 лет", minAge: 18, deadline: "26 июня 2026", tone: "red",
@@ -1960,7 +2108,7 @@ const BASE_PROGRAMS = [
     urgent: true, check: null, isNew: true
   },
   {
-    id: 48, name: "Love in the Wind — Savannah (Ranch Hand Lead)",
+    id: 48, domain: "castings", name: "Love in the Wind — Savannah (Ranch Hand Lead)",
     org: "Moviehead Pictures · Tri Nguyen, casting dir.",
     category: "Кастинги", baseCountry: "USA", country: "USA (CA / TX)",
     age: "18–30 лет", minAge: 18, deadline: "26 июня 2026", tone: "red",
@@ -1975,7 +2123,7 @@ const BASE_PROGRAMS = [
     urgent: true, check: null, isNew: true
   },
   {
-    id: 49, name: "Blood & Soil — Horseback Riders (17–18)",
+    id: 49, domain: "castings", name: "Blood & Soil — Horseback Riders (17–18)",
     org: "Blood & Soil production",
     category: "Кастинги", baseCountry: "USA", country: "USA (North Carolina)",
     age: "17–18 лет", minAge: 17, deadline: "Закрыт (истёк 28 февраля 2026)", tone: "neutral",
@@ -1989,7 +2137,7 @@ const BASE_PROGRAMS = [
     urgent: false, check: null, closed: true
   },
   {
-    id: 50, name: "Netflix Series — Women Riders (Lupus Films)",
+    id: 50, domain: "castings", name: "Netflix Series — Women Riders (Lupus Films)",
     org: "Lupus Films",
     category: "Кастинги", baseCountry: "Испания", country: "Испания (национальный кастинг)",
     age: "20–50 лет (женщины)", minAge: 20, deadline: "Мониторить (без публичного дедлайна)", tone: "green",
@@ -2049,10 +2197,10 @@ const BASE_PROGRAMS = [
     urgent: false, check: null, profileFit: "Вторичный приоритет — sport track в Jockey Club/Rothschild", isNew: true
   },
   {
-    id: 54, name: "Masa Israel — Equestrian Gap Experience",
+    id: 54, domain: "volunteering", name: "Masa Israel — Equestrian Gap Experience",
     org: "Masa Israel Journey + local stables",
-    category: "Обмен", baseCountry: "Израиль", country: "Израиль",
-    age: "18–35 лет", minAge: 18, deadline: "Rolling (за несколько месяцев до начала программы)", tone: "neutral",
+    category: "Социальные проекты", baseCountry: "Израиль", country: "Израиль",
+    age: "18–35 лет", minAge: 18, audience: "teen", deadline: "Rolling (за несколько месяцев до начала программы)", tone: "neutral",
     support: ["Жильё", "Обучение"],
     pay: "Платная программа (стоимость зависит от трека, гранты Masa частично покрывают расходы)",
     dates: "5–10 месяцев (циклы начинаются в сентябре и январе)",
@@ -2572,19 +2720,24 @@ function normalizeMinAge(minAge, ageRange) {
 
 function inferCategory(type, title, domain) {
   const source = `${type || ""} ${title || ""}`.toLowerCase();
+  if (domain === "castings") return "Кастинги";
+  if (domain === "volunteering") {
+    if (source.includes("esc") || source.includes("solidarity corps")) return "ESC";
+    if (source.includes("volunteer") || source.includes("work exchange") || source.includes("helpstay") || source.includes("workaway")) return "Волонтёрский обмен";
+    if (source.includes("35") || source.includes("adult") || source.includes("senior")) return "35+";
+    return "Социальные проекты";
+  }
   if (domain === "acting") {
-    if (source.includes("casting") || source.includes("cast ") || source.includes("talent search")) return "Кастинги в актёрском мастерстве";
     if (source.includes("audition") || source.includes("open call")) return "Аудиции";
     if (source.includes("scholarship") || source.includes("grant") || source.includes("financial aid")) return "Стипендии";
     if (source.includes("internship") || source.includes("apprentice") || source.includes("backstage")) return "Стажировки";
-    if (source.includes("volunteering") || source.includes("exchange") || source.includes("solidarity corps") || source.includes("esc")) return "Обмен";
     if (source.includes("intensive") || source.includes("camp") || source.includes("conservatory") || source.includes("summer") || source.includes("workshop")) return "Интенсивы";
     return "Интенсивы";
   }
   if (source.includes("scholarship") || source.includes("grant")) return "Стипендии";
   if (source.includes("camp") || source.includes("counselor")) return "Лагери";
-  if (source.includes("volunteering") || source.includes("exchange") || source.includes("solidarity corps")) return "Обмен";
-  if (source.includes("casting")) return "Кастинги";
+  if (source.includes("exchange") || source.includes("mentorship") || source.includes("feif") || source.includes("pony club")) return "Обмен";
+  if (source.includes("intensive") || source.includes("academy") || source.includes("stables")) return "Интенсивы";
   return "Стажировки";
 }
 
@@ -4924,7 +5077,7 @@ const VERIFIED_REGISTRY = {
     ],
     "verifiedAt": "2026-06-11",
     "closed": true,
-    "urgent": true
+    "urgent": false
   },
   "1018": {
     "summary": "Стажировка в двуязычном арабо-еврейском театре Яффо в Тель-Авиве по программе Masa Israel для еврейской молодежи, фокус на коммуникациях и фандрейзинге.",
@@ -5017,12 +5170,60 @@ function applyVerifiedProgram(program) {
 }
 // VERIFIED_REGISTRY_END
 
+const VOLUNTEERING_IDS = new Set([18, 24, 31, 54, 1014, 1015, 1016]);
+
+function resolveProgramDomain(program) {
+  const p = { ...program };
+  if (p.domain === "volunteering") return p;
+  if (p.domain === "castings") {
+    p.category = "Кастинги";
+    return p;
+  }
+  const name = (p.name || "").toLowerCase();
+  const cat = p.category || "";
+
+  if (cat === "Кастинги" || cat === "Кастинги в актёрском мастерстве") {
+    p.domain = "castings";
+    p.category = "Кастинги";
+    return p;
+  }
+
+  const isEsc = name.includes("esc ") || name.includes("solidarity corps") || name.includes("european solidarity");
+  const isVolExchange = name.includes("volunteer") && (name.includes("exchange") || name.includes("work exchange"));
+  const isMasaGap = name.includes("masa") && name.includes("gap");
+
+  if (VOLUNTEERING_IDS.has(p.id) || isEsc || isVolExchange || isMasaGap || (p.domain === "acting" && cat === "Обмен")) {
+    const origDomain = p.domain;
+    p.domain = "volunteering";
+    if (!p.audience) p.audience = "teen";
+    if (p.category === "35+" || p.audience === "adult") {
+      p.category = "35+";
+    } else if (isEsc || cat === "ESC" || (origDomain === "acting" && cat === "Обмен")) {
+      p.category = "ESC";
+    } else if (isVolExchange || cat === "Волонтёрский обмен") {
+      p.category = "Волонтёрский обмен";
+    } else if (!["ESC", "Волонтёрский обмен", "Социальные проекты", "35+"].includes(p.category)) {
+      p.category = "Социальные проекты";
+    }
+    return p;
+  }
+
+  if (!p.domain || p.domain === "equestrian" || p.domain === "acting") {
+    if (p.domain === "acting") return p;
+    if (cat === "Обмен" && !isEsc) return { ...p, domain: "equestrian" };
+    return { ...p, domain: p.domain || "equestrian" };
+  }
+
+  return p;
+}
+
 const PROGRAMS = [
   ...mergePrograms(BASE_PROGRAMS, LATEST_FEED, "equestrian"),
-  ...mergePrograms(ACTING_BASE_PROGRAMS, ACTING_LATEST_FEED, "acting")
-].map(applyVerifiedProgram);
+  ...mergePrograms(ACTING_BASE_PROGRAMS, ACTING_LATEST_FEED, "acting"),
+  ...mergePrograms(VOLUNTEERING_BASE_PROGRAMS, VOLUNTEERING_FEED, "volunteering")
+].map(applyVerifiedProgram).map(resolveProgramDomain);
 
-let activeDomain = "equestrian";
+let activeDomain = "castings";
 let activeStatus = "open";
 let activeCategory = "all";
 let activeCountry = "all";
@@ -5040,12 +5241,34 @@ function getOpenDomainPrograms(domain) {
 
 function initDomainFromUrl() {
   const hash = (window.location.hash || "").replace("#", "");
-  if (hash === "acting" || hash === "equestrian") {
+  if (DOMAIN_ORDER.includes(hash)) {
     activeDomain = hash;
+  } else if (LEGACY_DOMAIN_MAP[hash]) {
+    activeDomain = LEGACY_DOMAIN_MAP[hash];
   } else {
     const stored = localStorage.getItem("polina-active-domain");
-    if (stored === "acting" || stored === "equestrian") activeDomain = stored;
+    if (DOMAIN_ORDER.includes(stored)) activeDomain = stored;
+    else if (LEGACY_DOMAIN_MAP[stored]) activeDomain = LEGACY_DOMAIN_MAP[stored];
   }
+}
+
+function getAgeTiers() {
+  return DOMAINS[activeDomain]?.ageTiers || ["16", "17", "18"];
+}
+
+function programMatchesAge(program, targetAge) {
+  if (activeDomain === "volunteering" && activeAge === "35") {
+    if (program.category === "35+") return true;
+    const aud = program.audience || "teen";
+    return (aud === "adult" || aud === "both") && program.minAge <= 35;
+  }
+  if (activeDomain === "volunteering") {
+    const aud = program.audience || "teen";
+    if (aud === "adult") return false;
+    if (program.category === "35+") return false;
+    return program.minAge <= targetAge;
+  }
+  return program.minAge <= targetAge;
 }
 
 function setDomain(btn) {
@@ -5057,7 +5280,7 @@ function setDomain(btn) {
   activeStatus = "open";
   activeCategory = "all";
   activeCountry = "all";
-  activeAge = "16";
+  activeAge = getAgeTiers()[0];
   selectedProgramId = null;
   expandedProgramId = null;
   document.querySelectorAll('.domain-btn').forEach(b => {
@@ -5073,8 +5296,6 @@ function renderDomainChrome() {
   document.getElementById('urgent-callout-text').textContent = cfg.urgentCallout;
   document.title = cfg.title + " — Полина";
 }
-
-const AGE_TIERS = ["16", "17", "18"];
 
 function applyCountryFilter(programs) {
   if (activeCountry === "all") return programs;
@@ -5093,6 +5314,9 @@ function applyCategoryFilter(programs, category) {
   if (category === "all") return programs;
   if (category === "urgent") return programs.filter(p => p.urgent);
   if (category === "new") return programs.filter(p => p.isNew);
+  if (activeDomain === "volunteering" && category === "35+") {
+    return programs.filter(p => p.category === "35+" || p.audience === "adult" || p.audience === "both");
+  }
   return programs.filter(p => p.category === category);
 }
 
@@ -5103,10 +5327,15 @@ function programsForCategoryAndCountry(category) {
 
 function lowestAgeTierWithResults(pool) {
   if (!pool.length) return null;
-  for (const tier of AGE_TIERS) {
-    if (pool.some(p => p.minAge <= Number(tier))) return tier;
+  const tiers = getAgeTiers();
+  for (const tier of tiers) {
+    if (tier === "35") {
+      if (pool.some(p => programMatchesAge(p, 35))) return tier;
+    } else if (pool.some(p => programMatchesAge(p, Number(tier)))) {
+      return tier;
+    }
   }
-  return "18";
+  return tiers[tiers.length - 1];
 }
 
 function autoAdjustAgeForSelection() {
@@ -5114,13 +5343,13 @@ function autoAdjustAgeForSelection() {
   const pool = programsForCategoryAndCountry(activeCategory);
   const suggested = lowestAgeTierWithResults(pool);
   if (!suggested) return;
-  const currentCount = pool.filter(p => p.minAge <= Number(activeAge)).length;
+  const currentCount = pool.filter(p => programMatchesAge(p, Number(activeAge))).length;
   if (currentCount === 0) activeAge = suggested;
 }
 
 function getVisiblePrograms() {
-  const targetAge = Number(activeAge);
-  return programsForCategoryAndCountry(activeCategory).filter(p => p.minAge <= targetAge);
+  const targetAge = activeAge === "35" ? 35 : Number(activeAge);
+  return programsForCategoryAndCountry(activeCategory).filter(p => programMatchesAge(p, targetAge));
 }
 
 function clearStaleCountryFilter() {
@@ -5136,15 +5365,25 @@ function getFilterScopeLabel() {
 
 function getCategoryChipCount(cat) {
   const pool = programsForCategoryAndCountry(cat);
-  const targetAge = Number(activeAge);
-  return pool.filter(p => p.minAge <= targetAge).length;
+  const targetAge = activeAge === "35" ? 35 : Number(activeAge);
+  return pool.filter(p => programMatchesAge(p, targetAge)).length;
 }
 
 function getCountryChipCount(country) {
   let pool = applyCategoryFilter(getStatusPool(), activeCategory);
   if (country !== "all") pool = pool.filter(p => p.baseCountry === country);
-  const targetAge = Number(activeAge);
-  return pool.filter(p => p.minAge <= targetAge).length;
+  const targetAge = activeAge === "35" ? 35 : Number(activeAge);
+  return pool.filter(p => programMatchesAge(p, targetAge)).length;
+}
+
+function buildAgeFilters() {
+  const tiers = getAgeTiers();
+  if (!tiers.includes(activeAge)) activeAge = tiers[0];
+  const html = tiers.map(tier => {
+    const active = activeAge === tier ? " active" : "";
+    return `<button type="button" class="chip${active}" data-age="${tier}" onclick="setAge(this)">${tier}+</button>`;
+  }).join("");
+  document.getElementById("age-filter").innerHTML = html;
 }
 
 function buildStatusFilters() {
@@ -5229,7 +5468,7 @@ function jumpToProgram(id) {
   activeStatus = program.closed ? "closed" : "open";
   activeCategory = "all";
   activeCountry = "all";
-  activeAge = ["16", "17", "18"].find(age => program.minAge <= Number(age)) || "16";
+  activeAge = getAgeTiers().find(age => programMatchesAge(program, age === "35" ? 35 : Number(age))) || getAgeTiers()[0];
   selectedProgramId = id;
   expandedProgramId = id;
   syncFilterChips();
@@ -5724,6 +5963,7 @@ function render() {
   buildStatusFilters();
   buildCategoryFilters();
   buildCountryFilters();
+  buildAgeFilters();
   const categoryPool = programsForCategoryAndCountry(activeCategory);
   const filtered = getVisiblePrograms();
 
@@ -5739,9 +5979,11 @@ function render() {
   let barText = 'Показано: ' + filtered.length + ' программ';
   if (filtered.length < categoryPool.length) {
     const hidden = categoryPool.length - filtered.length;
-    const nextTier = AGE_TIERS.find(tier =>
-      categoryPool.filter(p => p.minAge <= Number(tier)).length > filtered.length
-    );
+    const tiers = getAgeTiers();
+    const nextTier = tiers.find(tier => {
+      const ageNum = tier === "35" ? 35 : Number(tier);
+      return categoryPool.filter(p => programMatchesAge(p, ageNum)).length > filtered.length;
+    });
     if (nextTier) barText += ` · ещё ${hidden} при ${nextTier}+`;
   }
   bar.textContent = barText;
